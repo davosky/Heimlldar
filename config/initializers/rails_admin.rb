@@ -25,6 +25,12 @@ RailsAdmin.config do |config|
     label_plural 'Zone'
   end
 
+  config.model 'AbsenceType' do
+    visible true
+    label 'Tipo Assenza'
+    label_plural 'Tipi Assenza'
+  end
+
   config.actions do
     dashboard
     index
