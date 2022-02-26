@@ -1,0 +1,19 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8mb4
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: Heimdallr
+  password: Dfr368qE
+  host: localhost
+
+development:
+  <<: *default
+  database: Heimdallr_development
+
+test:
+  <<: *default
+  database: Heimdallr_test
+
+production:
+  <<: *default
+  database: Heimdallr_production
