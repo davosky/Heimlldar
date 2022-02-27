@@ -8,12 +8,22 @@ module ApplicationHelper
     end
 
     def absence_type?(absence)
-        if absence.absence_type.name == 'Malattia'
+        if absence.absence_type.name == 'MALATTIA'
             "danger"
-        elsif absence.absence_type.name == 'Permesso'
+        elsif absence.absence_type.name == 'PERMESSO'
             "warning"
         else
             "info"
+        end
+    end
+
+    def absence_type_icon?(absence)
+        if absence.absence_type.name == 'MALATTIA'
+            "fas fa-thermometer-three-quarters"
+        elsif absence.absence_type.name == 'PERMESSO'
+            "fas fa-bath"
+        else
+            "fas fa-plane"
         end
     end
 end
