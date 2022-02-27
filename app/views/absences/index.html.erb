@@ -1,4 +1,7 @@
-<h3 class='text-primary'>Calendario Assenze</h3>
+<h3 class='text-primary'>
+  &emsp;
+  Calendario Assenze - Settimanale
+</h3>
 <hr class='hr-primary'/>
 <%= week_calendar(number_of_weeks: 1, events: @absences) do |date, absences| %>
   <% if date.wday == 0 || date.wday == 6 %>
@@ -6,7 +9,14 @@
     <div class='card bg-light mb-3 shadow'>
       <div class='card-body'>
         <div class='card-header text-center'>
-          <%= l(date, format: '%A %d') %>
+          <strong>
+            <span class='text-secondary'>
+              <i class='fas fa-calendar-day'></i>
+              <%= l(date, format: '%b') %>
+            </span>
+            &emsp;
+            <%= l(date, format: '%A %d') %>
+          </strong>
         </div>
         <% absences.each do |absence| %>
           <div class='card border-<%= absence_type?(absence) %> mb-3'>

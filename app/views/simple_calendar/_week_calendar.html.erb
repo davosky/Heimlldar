@@ -2,7 +2,7 @@
 <div class='simple-calendar'>
   <div class='calendar-heading text-center'>
     <%= link_to calendar.url_for_previous_view, class: 'btn btn-primary btn-sm' do %>
-      <i class='far fa-arrow-alt-circle-left'></i>
+      <i class='fas fa-angle-left'></i>
     <% end %>
     &emsp;
     <% if calendar.number_of_weeks == 1 %>
@@ -20,7 +20,7 @@
     <% end %>
     &emsp;
     <%= link_to calendar.url_for_next_view, class: 'btn btn-primary btn-sm' do %>
-      <i class='far fa-arrow-alt-circle-right'></i>
+      <i class='fas fa-angle-right'></i>
     <% end %>
   </div>
   <br/>
