@@ -21,11 +21,13 @@
       </div>
       <div class='card-body'>
         <% absences.each do |absence| %>
-          <span class='badge bg-<%= absence_type?(absence) %> mb-1'>
-            <i class='<%= absence_type_icon?(absence) %>'></i>
-            &nbsp;
-            <%= absence.user.last_name %>&nbsp;<%= absence.user.first_name %>
-          </span>
+          <%= link_to absence_path(absence)  do %>
+            <span class='badge bg-<%= absence_type?(absence) %> mb-1'>
+              <i class='<%= absence_type_icon?(absence) %>'></i>
+              &nbsp;
+              <%= absence.user.last_name %>&nbsp;<%= absence.user.first_name %>
+            </span>
+          <% end %>
           <br/>
         <% end %>
       </div>
