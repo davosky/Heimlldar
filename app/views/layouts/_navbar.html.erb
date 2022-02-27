@@ -14,7 +14,10 @@
           </a>
           <div class='dropdown-menu'>
             <%= link_to absences_path, class: 'dropdown-item' do %>
-              <i class='fas fa-calendar-alt'></i>&emsp;Calendario Settimanale
+              <i class='fas fa-calendar-week'></i>&emsp;Calendario Settimanale
+            <% end %>
+            <%= link_to monthly_view_absences_path, class: 'dropdown-item' do %>
+              <i class='far fa-calendar-alt'></i>&emsp;Calendario Mensile
             <% end %>
           </div>
         </li>

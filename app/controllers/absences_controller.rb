@@ -5,6 +5,10 @@ class AbsencesController < ApplicationController
     @absences = Absence.all
   end
 
+  def monthly_view
+    @absences = Absence.all
+  end
+
   def show
   end
 

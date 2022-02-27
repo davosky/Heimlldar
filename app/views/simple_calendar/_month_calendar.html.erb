@@ -1,5 +1,5 @@
 <div class='simple-calendar'>
-  <div class='calendar-heading'>
+  <div class='calendar-heading text-center'>
     <%= link_to calendar.url_for_previous_view, class: 'btn btn-primary'  do %>
       <i class='fas fa-angle-left'></i>
     <% end %>
@@ -15,7 +15,7 @@
     <% end %>
   </div>
   <br/>
-  <table class='table table-striped'>
+  <table class='table'>
     <thead>
       <tr>
         <% date_range.slice(0, 7).each do |day| %>

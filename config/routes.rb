@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :absences
   root to: 'dashboard#index'
 
   get 'dashboard/index'
@@ -12,5 +11,11 @@ Rails.application.routes.draw do
     get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'
     put 'users' => 'devise/registrations#update', :as => 'user_registration'
     get '/users/sign_out' => 'devise/sessions#destroy'
+  end
+
+  resources :absences do
+    collection do
+      get :monthly_view
+    end
   end
 end

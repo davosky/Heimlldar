@@ -8,18 +8,18 @@
   <% if date.wday == 0 || date.wday == 6 %>
   <% else %>
     <div class='card bg-light mb-3 shadow'>
+      <div class='card-header text-center'>
+        <strong>
+          <i class='fas fa-calendar-day'></i>
+          &nbsp;
+          <%= l(date, format: '%A %d') %>
+          &emsp;
+          <span class='text-secondary'>
+            <%= l(date, format: '%b') %>
+          </span>
+        </strong>
+      </div>
       <div class='card-body'>
-        <div class='card-header text-center'>
-          <strong>
-            <i class='fas fa-calendar-day'></i>
-            &nbsp;
-            <%= l(date, format: '%A %d') %>
-            &emsp;
-            <span class='text-secondary'>
-              <%= l(date, format: '%b') %>
-            </span>
-          </strong>
-        </div>
         <% absences.each do |absence| %>
           <div class='card border-<%= absence_type?(absence) %> mb-3'>
             <div class='card-body'>
@@ -27,11 +27,11 @@
               &nbsp;
               <%= absence.user.last_name %>&nbsp;<%= absence.user.first_name %>
               <br/>
-              <spang class='badge bg-<%= absence_type?(absence) %>'>
+              <span class='badge bg-<%= absence_type?(absence) %>'>
                 <i class='<%= absence_type_icon?(absence) %>'></i>
                 &emsp;
                 <%= absence.absence_type.name %>
-              </spang>
+              </span>
               <br/>
               <i class='far fa-clock'></i>&nbsp;
               dalle:&nbsp;<%= l(absence.start_time, format: '%H:%M') %>
