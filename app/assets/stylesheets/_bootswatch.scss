@@ -70,7 +70,11 @@ $web-font-path: "https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,
 
 .table {
   .thead-dark th {
-    background-color: $dark;
+    background-color: $info;
+  }
+
+  td {
+    border: none;
   }
 }
 
@@ -272,4 +276,62 @@ body {
 
 .bg-primary {
   background-color: $primary !important;
+}
+
+.hr-primary {
+  display: block;
+  height: 2px;
+  border: 0;
+  border-top: 2px solid $primary;
+  margin: 1em 0;
+  padding: 0;
+}
+
+.hr-secondary {
+  display: block;
+  height: 2px;
+  border: 0;
+  border-top: 2px solid $secondary;
+  margin: 1em 0;
+  padding: 0;
+}
+
+.hr-info {
+  display: block;
+  height: 2px;
+  border: 0;
+  border-top: 2px solid $info;
+  margin: 1em 0;
+  padding: 0;
+}
+
+.hr-success {
+  display: block;
+  height: 2px;
+  border: 0;
+  border-top: 2px solid $success;
+  margin: 1em 0;
+  padding: 0;
+}
+
+.hr-warning {
+  display: block;
+  height: 2px;
+  border: 0;
+  border-top: 2px solid $warning;
+  margin: 1em 0;
+  padding: 0;
+}
+
+.hr-danger {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid $danger;
+  margin: 1em 0;
+  padding: 0;
+}
+
+.shadow {
+  box-shadow: 8px 8px 8px rgba(42, 42, 42, 0.2);
 }

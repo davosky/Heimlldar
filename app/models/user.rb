@@ -5,6 +5,7 @@ class User < ApplicationRecord
 
   belongs_to :department, optional: true
   belongs_to :zone, optional: true
+  has_many :absences
 
   validates :first_name, presence: true
   validates :last_name, presence: true

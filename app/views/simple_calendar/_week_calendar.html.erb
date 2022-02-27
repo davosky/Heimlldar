@@ -1,0 +1,51 @@
+<br/>
+<div class='simple-calendar'>
+  <div class='calendar-heading text-center'>
+    <%= link_to calendar.url_for_previous_view, class: 'btn btn-primary btn-sm' do %>
+      <i class='far fa-arrow-alt-circle-left'></i>
+    <% end %>
+    &emsp;
+    <% if calendar.number_of_weeks == 1 %>
+      <strong class='text-primary'><%= t('simple_calendar.week', default: 'Settimana') %>
+        &nbsp;
+        <%= calendar.week_number %>
+        &nbsp;
+        <%= t('date.month_names')[start_date.month] %>
+        &nbsp;
+        <%= start_date.year %>
+        &nbsp;
+      </strong>
+    <% else %>
+      <span class='calendar-title'><%= t('simple_calendar.week', default: 'Week') %> <%= calendar.week_number %> - <%= calendar.end_week %></span>
+    <% end %>
+    &emsp;
+    <%= link_to calendar.url_for_next_view, class: 'btn btn-primary btn-sm' do %>
+      <i class='far fa-arrow-alt-circle-right'></i>
+    <% end %>
+  </div>
+  <br/>
+  <table class='table'>
+    <thead class='text-primary'>
+      <tr>
+        <% date_range.slice(0, 5).each do |day| %>
+          <th><%= t('date.abbr_day_names')[day.wday] %></th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody class='text-primary'>
+      <% date_range.each_slice(5) do |week| %>
+        <tr>
+          <% week.each do |day| %>
+            <%= content_tag :td, class: calendar.td_classes_for(day) do %>
+              <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block) %>
+                <% capture_haml(day, sorted_events.fetch(day, []), &passed_block) %>
+              <% else %>
+                <% passed_block.call day, sorted_events.fetch(day, []) %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

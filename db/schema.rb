@@ -10,12 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_02_26_164853) do
+ActiveRecord::Schema[7.0].define(version: 2022_02_26_170130) do
   create_table "absence_types", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "name"
     t.integer "position"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "absences", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
+    t.integer "name"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.bigint "user_id"
+    t.bigint "absence_type_id"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["absence_type_id"], name: "index_absences_on_absence_type_id"
+    t.index ["user_id"], name: "index_absences_on_user_id"
   end
 
   create_table "departments", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
@@ -55,6 +68,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_26_164853) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "absences", "absence_types"
+  add_foreign_key "absences", "users"
   add_foreign_key "users", "departments"
   add_foreign_key "users", "zones"
 end

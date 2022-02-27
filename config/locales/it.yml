@@ -7,6 +7,13 @@ it:
       next: Prossima
       previous: Precedente
       truncate: ---
+    simple_calendar:
+      previous: "<<"
+      next: ">>"
+      day: Giorno
+      week: Settimana
+      month: Mese
+      year: Anno
   activerecord:
     attributes:
       user:
@@ -48,6 +55,17 @@ it:
         created_at: Creato il
         updated_at: Aggiornato il
         absences: Assenze
+      absence:
+        name: Codice
+        start_time: Data Inizio
+        end_time: Data Fine
+        user: Utente
+        user_id: Utente (codice)
+        absence_type: Tipo Assenza
+        absence_type_id: Tipo Assenza (codice)
+        description: Descrizione
+        created_at: Creato il
+        updated_at: Aggiornato il
     errors:
       messages:
         record_invalid: "Validazione fallita: %{errors}"

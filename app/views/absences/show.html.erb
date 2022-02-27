@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @absence %>
+
+<div>
+  <%= link_to "Edit this absence", edit_absence_path(@absence) %> |
+  <%= link_to "Back to absences", absences_path %>
+
+  <%= button_to "Destroy this absence", @absence, method: :delete %>
+</div>
