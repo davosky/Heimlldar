@@ -1,4 +1,5 @@
 <h3 class='text-primary'>
+  <%= inline_svg_tag 'icon_calendar_week.svg', size: '48px * 48px', preserve_aspect_ratio: 'xMaxYMax meet' %>
   &emsp;
   Calendario Assenze - Settimanale
 </h3>
@@ -10,12 +11,13 @@
       <div class='card-body'>
         <div class='card-header text-center'>
           <strong>
+            <i class='fas fa-calendar-day'></i>
+            &nbsp;
+            <%= l(date, format: '%A %d') %>
+            &emsp;
             <span class='text-secondary'>
-              <i class='fas fa-calendar-day'></i>
               <%= l(date, format: '%b') %>
             </span>
-            &emsp;
-            <%= l(date, format: '%A %d') %>
           </strong>
         </div>
         <% absences.each do |absence| %>
