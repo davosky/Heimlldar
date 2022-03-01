@@ -19,6 +19,12 @@
             <%= link_to monthly_view_absences_path, class: 'dropdown-item' do %>
               <i class='far fa-calendar-alt'></i>&emsp;Calendario Mensile
             <% end %>
+            <%= link_to new_absence_path, class: 'dropdown-item' do %>
+              <i class='fas fa-plus'></i>
+              &nbsp;
+              <i class='fas fa-calendar-day'></i>
+              &emsp;Inserisci una Nuova Assenza
+            <% end %>
           </div>
         </li>
       </ul>
