@@ -7,6 +7,10 @@ module ApplicationHelper
         "#{current_user.first_name} #{current_user.last_name}"
     end
 
+    def absence_full_user(absence)
+        "#{absence.user.first_name} #{absence.user.last_name}"
+    end
+
     def absence_type?(absence)
         if absence.absence_type.name == 'MALATTIA'
             "danger"

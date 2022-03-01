@@ -27,11 +27,13 @@
               &nbsp;
               <%= absence.user.last_name %>&nbsp;<%= absence.user.first_name %>
               <br/>
-              <span class='badge bg-<%= absence_type?(absence) %>'>
-                <i class='<%= absence_type_icon?(absence) %>'></i>
-                &emsp;
-                <%= absence.absence_type.name %>
-              </span>
+              <%= link_to absence_path(absence)  do %>
+                <span class='badge bg-<%= absence_type?(absence) %>'>
+                  <i class='<%= absence_type_icon?(absence) %>'></i>
+                  &emsp;
+                  <%= absence.absence_type.name %>
+                </span>
+              <% end %>
               <br/>
               <i class='far fa-clock'></i>&nbsp;
               dalle:&nbsp;<%= l(absence.start_time, format: '%H:%M') %>

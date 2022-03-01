@@ -339,3 +339,11 @@ body {
 .badge {
   font-size: 0.86rem;
 }
+
+.a-light {
+  color: $white;
+
+  &:hover {
+    color: $dark;
+  }
+}

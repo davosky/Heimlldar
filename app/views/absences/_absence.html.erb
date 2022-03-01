@@ -1,32 +1,37 @@
-<div id="<%= dom_id absence %>">
-  <p>
-    <strong>Name:</strong>
-    <%= absence.name %>
-  </p>
-
-  <p>
-    <strong>Start time:</strong>
-    <%= absence.start_time %>
-  </p>
-
-  <p>
-    <strong>End time:</strong>
-    <%= absence.end_time %>
-  </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= absence.user_id %>
-  </p>
-
-  <p>
-    <strong>Absence type:</strong>
-    <%= absence.absence_type_id %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
+<div class='card border-<%= absence_type?(absence) %>' id='<%= dom_id absence %>'>
+  <div class='card-header bg-<%= absence_type?(absence) %> text-white'>
+    <strong>
+      <span class='float-start'>
+        <i class='fas fa-user-circle'></i>
+        &nbsp;
+        <%= absence_full_user(absence).upcase %>
+      </span>
+      <span class='float-end'>
+        &emsp;
+        <%= absence.absence_type.name %>
+        &emsp;
+        <i class='<%= absence_type_icon?(absence) %>'></i>
+        &emsp;&emsp;
+        <%= link_to absences_path, class: 'a-light' do %>
+          <i class='fas fa-times'></i>
+        <% end %>
+      </span>
+    </strong>
+  </div>
+  <div class='card-body'>
+    <strong class='text-<%= absence_type?(absence) %>'>
+      Data Inizio:&emsp;<%= l(absence.start_time, format: '%A %d %B %Y dalle: %H:%M') %>
+      <br/>
+      Data Fine&nbsp;&nbsp;:&emsp;<%= l(absence.end_time, format: '%A %d %B %Y dalle: %H:%M') %>
+    </strong>
+    <hr/>
+    Zona:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= absence.user.zone.name %>
+    <br/>
+    Reparto:&nbsp;&nbsp;&nbsp;<%= absence.user.department.name %>
+    <hr />
+    Note:
+    <br/>
     <%= absence.description %>
-  </p>
-
+    <br/>
+  </div>
 </div>
