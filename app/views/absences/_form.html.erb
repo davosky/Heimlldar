@@ -1,7 +1,10 @@
 <%= form_with(model: absence) do |form| %>
 <% if absence.errors.any? %>
 <div style="color: red">
-    <h2><%= pluralize(absence.errors.count, "error") %> prohibited this absence from being saved:</h2>
+    <%= pluralize(absence.errors.count, "errori") %>
+    <br />
+    Attenzione - non posso salvare per i seguenti errori:
+    <br />
     <ul>
         <% absence.errors.each do |error| %>
         <li><%= error.full_message %></li>
@@ -16,7 +19,7 @@
                 <i class='fa fa-calendar-day'></i>
                 &nbsp;Data inizio:
             </span>
-            <%= form.datetime_field :start_time, min: 0.days.ago, class: 'form-control' %>
+            <%= form.datetime_field :start_time, class: 'form-control' %>
         </div>
     </div>
 </div>
@@ -27,7 +30,7 @@
                 <i class='fas fa-calendar-day'></i>
                 &nbsp;Data fine:
             </span>
-            <%= form.datetime_field :end_time, min: 0.days.ago, class: 'form-control' %>
+            <%= form.datetime_field :end_time, class: 'form-control' %>
         </div>
     </div>
 </div>

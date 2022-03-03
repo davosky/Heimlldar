@@ -20,11 +20,11 @@ class AbsencesController < ApplicationController
   end
 
   def create
-    @absence = Absence.new(absence_params)
+    @absence = current_user.absences.build(absence_params)
 
     respond_to do |format|
       if @absence.save
-        format.html { redirect_to absence_url(@absence), notice: "Absence was successfully created." }
+        format.html { redirect_to absences_url, notice: "Assenza creata con successo." }
         format.json { render :show, status: :created, location: @absence }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -36,7 +36,7 @@ class AbsencesController < ApplicationController
   def update
     respond_to do |format|
       if @absence.update(absence_params)
-        format.html { redirect_to absence_url(@absence), notice: "Absence was successfully updated." }
+        format.html { redirect_to absences_url, notice: "Assenza aggiornata con successo." }
         format.json { render :show, status: :ok, location: @absence }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -49,7 +49,7 @@ class AbsencesController < ApplicationController
     @absence.destroy
 
     respond_to do |format|
-      format.html { redirect_to absences_url, notice: "Absence was successfully destroyed." }
+      format.html { redirect_to absences_url, notice: "Assenza eliminata con successo." }
       format.json { head :no_content }
     end
   end

@@ -1,55 +1,61 @@
 <h3 class='text-primary'>
-  <%= inline_svg_tag 'icon_calendar_week.svg', size: '48px * 48px', preserve_aspect_ratio: 'xMaxYMax meet' %>
-  &emsp;
-  Calendario Assenze - Settimanale
+    <%= inline_svg_tag 'icon_calendar_week.svg', size: '48px * 48px', preserve_aspect_ratio: 'xMaxYMax meet' %>
+    &emsp;
+    Calendario Assenze - Settimanale
 </h3>
-<hr class='hr-primary'/>
+<hr class='hr-primary' />
 <%= week_calendar(number_of_weeks: 1, events: @absences) do |date, absences| %>
-  <% if date.wday == 0 || date.wday == 6 %>
-  <% else %>
-    <div class='card bg-light mb-3 shadow'>
-      <div class='card-header text-center'>
+<% if date.wday == 0 || date.wday == 6 %>
+<% else %>
+<div class='card bg-light mb-3 shadow'>
+    <div class='card-header text-center'>
         <strong>
-          <i class='fas fa-calendar-day'></i>
-          &nbsp;
-          <%= l(date, format: '%A %d') %>
-          &emsp;
-          <span class='text-secondary'>
-            <%= l(date, format: '%b') %>
-          </span>
+            <i class='fas fa-calendar-day'></i>
+            &nbsp;
+            <%= l(date, format: '%A %d') %>
+            &emsp;
+            <span class='text-secondary'>
+                <%= l(date, format: '%b') %>
+            </span>
         </strong>
-      </div>
-      <div class='card-body'>
-        <% absences.each do |absence| %>
-          <div class='card border-<%= absence_type?(absence) %> mb-3'>
-            <div class='card-body'>
-              <i class='fas fa-user-circle'></i>
-              &nbsp;
-              <%= absence.user.last_name %>&nbsp;<%= absence.user.first_name %>
-              <br/>
-              <%= link_to absence_path(absence)  do %>
-                <span class='badge bg-<%= absence_type?(absence) %>'>
-                  <i class='<%= absence_type_icon?(absence) %>'></i>
-                  &emsp;
-                  <%= absence.absence_type.name %>
-                </span>
-              <% end %>
-              <br/>
-              <i class='far fa-clock'></i>&nbsp;
-              dalle:&nbsp;<%= l(absence.start_time, format: '%H:%M') %>
-              <br/>
-              <i class='far fa-clock'></i>&nbsp;
-              alle:&nbsp;<%= l(absence.end_time, format: '%H:%M') %>
-              <br/>
-              <small class='text-secondary'>
-                <i class='fas fa-map-marker-alt'></i>
-                &nbsp;
-                <%= absence.user.zone.name %>
-              </small>
-            </div>
-          </div>
-        <% end %>
-      </div>
     </div>
-  <% end %>
+    <div class='card-body'>
+        <% absences.each do |absence| %>
+        <div class='card border-<%= absence_type?(absence) %> mb-3'>
+            <div class='card-body'>
+                <div class='mb-1 text-<%= absence_type?(absence) %>'>
+                    <%= absence.user.last_name.upcase %>
+                    <br />
+                    <%= absence.user.first_name.upcase %>
+                </div>
+                <%= link_to absence_path(absence), title: "#{absence.description}", 'data-toggle' => 'tooltip', 'data-placement' => 'bottom'  do %>
+                <span class='badge bg-<%= absence_type?(absence) %>'>
+                    <i class='<%= absence_type_icon?(absence) %>'></i>
+                    &emsp;
+                    <%= absence.absence_type.name %>
+                </span>
+                <% end %>
+                <br />
+                <i class='far fa-clock'></i>&nbsp;
+                dalle:&nbsp;<%= l(absence.start_time, format: '%H:%M') %>
+                <br />
+                <i class='far fa-clock'></i>&nbsp;
+                alle:&nbsp;<%= l(absence.end_time, format: '%H:%M') %>
+                <br />
+                <small class='text-secondary'>
+                    <i class='fas fa-map-marker-alt'></i>
+                    &nbsp;
+                    <%= absence.user.zone.name %>
+                    <span class='float-end'>
+                        <%= link_to edit_absence_path(absence), title: 'Modifica Assenza', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom' do %>
+                        <i class='fas fa-pencil-alt text-<%= absence_type?(absence) %>'></i>
+                        <% end %>
+                    </span>
+                </small>
+            </div>
+        </div>
+        <% end %>
+    </div>
+</div>
+<% end %>
 <% end %>
