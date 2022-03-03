@@ -24,9 +24,9 @@
         <div class='card border-<%= absence_type?(absence) %> mb-3'>
             <div class='card-body'>
                 <div class='mb-1 text-<%= absence_type?(absence) %>'>
-                    <%= absence.user.last_name.upcase %>
-                    <br />
-                    <%= absence.user.first_name.upcase %>
+                    <i class='fas fa-user-circle'></i>
+                    &nbsp;
+                    <%= "#{absence.user.last_name} #{absence.user.first_name}".truncate(19) %>
                 </div>
                 <%= link_to absence_path(absence), title: "#{absence.description}", 'data-toggle' => 'tooltip', 'data-placement' => 'bottom'  do %>
                 <span class='badge bg-<%= absence_type?(absence) %>'>
