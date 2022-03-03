@@ -1,12 +1,63 @@
 <%= form_with(model: absence) do |form| %>
-  <% if absence.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(absence.errors.count, "error") %> prohibited this absence from being saved:</h2>
-      <ul>
+<% if absence.errors.any? %>
+<div style="color: red">
+    <h2><%= pluralize(absence.errors.count, "error") %> prohibited this absence from being saved:</h2>
+    <ul>
         <% absence.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+        <li><%= error.full_message %></li>
         <% end %>
-      </ul>
+    </ul>
+</div>
+<% end %>
+<div class='form-row align-items-center mb-1'>
+    <div class='col'>
+        <div class='input-group'>
+            <span class='input-group-text input-group-text-fixed'>
+                <i class='fa fa-calendar-day'></i>
+                &nbsp;Data inizio:
+            </span>
+            <%= form.datetime_field :start_time, min: 0.days.ago, class: 'form-control' %>
+        </div>
     </div>
-  <% end %>
+</div>
+<div class='form-row align-items-center mb-1'>
+    <div class='col'>
+        <div class='input-group'>
+            <span class='input-group-text input-group-text-fixed'>
+                <i class='fas fa-calendar-day'></i>
+                &nbsp;Data fine:
+            </span>
+            <%= form.datetime_field :end_time, min: 0.days.ago, class: 'form-control' %>
+        </div>
+    </div>
+</div>
+<div class='form-row align-items-center mb-1'>
+    <div class='col'>
+        <div class='input-group'>
+            <span class='input-group-text input-group-text-fixed'>
+                <i class='fas fa-plane'></i>
+                &nbsp;Tipo Assenza:
+            </span>
+            <%= form.collection_select(:absence_type_id, AbsenceType.order('position ASC'), :id, :name, {:include_blank => false}, {:class => 'form-control'}) %>
+        </div>
+    </div>
+</div>
+<div class='form-row align-items-center mb-1'>
+    <div class='col'>
+        <div class='input-group'>
+            <span class='input-group-text input-group-text-fixed'>
+                <i class='far fa-clipboard'></i>
+                &nbsp;Note:
+            </span>
+            <%= form.text_area :description, class: 'form-control' %>
+        </div>
+    </div>
+</div>
+<div class='form-row align-items-center mt-3'>
+    <div class='d-grid gap-2'>
+        <%= button_tag(type: 'submit', class: 'btn btn-outline-success btn-sm') do %>
+        <i class='fas fa-save'></i>&nbsp;&nbsp;SALVA
+        <% end %>
+    </div>
+</div>
 <% end %>

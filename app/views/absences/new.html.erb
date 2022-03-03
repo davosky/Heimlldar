@@ -1,20 +1,28 @@
 <div class='col-6 offset-3'>
-  <div class='card border-success shadow'>
-    <div class='card-header bg-success text-white'>
-      <strong>
-        <span class='float-start'>
-          Inserisci una Nuova Assenza
-          &emsp;&emsp;
-        </span>
-        <span class='float-end'>
-          <%= link_to absences_path, class: 'a-light' do %>
-            <i class='fas fa-times'></i>
-          <% end %>
-        </span>
-      </strong>
+    <div class='card border-success shadow'>
+        <div class='card-header bg-success text-white'>
+            <strong>
+                <span class='float-start'>
+                    <i class='fas fa-plus'></i>
+                    &emsp;
+                    <i class='fas fa-plane'></i>
+                    &nbsp;
+                    <i class='fas fa-bath'></i>
+                    &nbsp;
+                    <i class='fas fa-thermometer-three-quarters'></i>
+                    &emsp;
+                    Inserisci una Nuova Assenza
+                    &emsp;&emsp;
+                </span>
+                <span class='float-end'>
+                    <%= link_to absences_path, class: 'a-light' do %>
+                    <i class='fas fa-times'></i>
+                    <% end %>
+                </span>
+            </strong>
+        </div>
+        <div class='card-body'>
+            <%= render "form", absence: @absence %>
+        </div>
     </div>
-    <div class='card-body'>
-      <%= render "form", absence: @absence %>
-    </div>
-  </div>
 </div>
