@@ -4,9 +4,13 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    can :manage, :all if user.present? && user.admin == true
-
+    
     if user.present?
+
+      can :manage, :all if user.admin == true
+
+      can :manage, Absence if user.manager == true
+
       can :read, Absence
       
       can :manage, Absence do |absence|
