@@ -30,4 +30,8 @@ module ApplicationHelper
             "fas fa-plane"
         end
     end
+
+    def owner?(absence)
+        current_user.admin == true || current_user.manager == true || current_user.id == absence.user_id
+    end
 end

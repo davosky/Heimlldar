@@ -25,7 +25,7 @@
             <span class='badge bg-<%= absence_type?(absence) %> mb-1'>
               <i class='<%= absence_type_icon?(absence) %>'></i>
               &nbsp;
-              <%= absence.user.last_name %>&nbsp;<%= absence.user.first_name %>
+              <%= "#{absence.user.last_name} #{absence.user.first_name}".truncate(19) %>
             </span>
           <% end %>
           <br/>
