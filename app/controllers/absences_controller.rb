@@ -22,6 +22,8 @@ class AbsencesController < ApplicationController
   def create
     @absence = current_user.absences.build(absence_params)
 
+    @absence.creator = "#{current_user.last_name} #{current_user.first_name}"
+
     respond_to do |format|
       if @absence.save
         format.html { redirect_to absences_url, notice: "Assenza creata con successo." }
@@ -34,6 +36,8 @@ class AbsencesController < ApplicationController
   end
 
   def update
+    @absence.updater = "#{current_user.last_name} #{current_user.first_name}"
+
     respond_to do |format|
       if @absence.update(absence_params)
         format.html { redirect_to absences_url, notice: "Assenza aggiornata con successo." }
@@ -60,6 +64,6 @@ class AbsencesController < ApplicationController
     end
 
     def absence_params
-      params.require(:absence).permit(:name, :start_time, :end_time, :user_id, :absence_type_id, :description)
+      params.require(:absence).permit(:name, :start_time, :end_time, :user_id, :absence_type_id, :description, :creator, :updater)
     end
 end

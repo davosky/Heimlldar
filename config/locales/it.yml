@@ -64,6 +64,8 @@ it:
         absence_type: Tipo Assenza
         absence_type_id: Tipo Assenza (codice)
         description: Descrizione
+        creator: Creato da
+        updater: Aggiornato da
         created_at: Creato il
         updated_at: Aggiornato il
     errors:

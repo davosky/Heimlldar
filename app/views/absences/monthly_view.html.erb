@@ -21,7 +21,7 @@
       </div>
       <div class='card-body'>
         <% absences.each do |absence| %>
-          <%= link_to absence_path(absence)  do %>
+          <%= link_to absence_path(absence), title: "#{absence.description}", 'data-toggle' => 'tooltip', 'data-placement' => 'bottom'  do %>
             <span class='badge bg-<%= absence_type?(absence) %> mb-1'>
               <i class='<%= absence_type_icon?(absence) %>'></i>
               &nbsp;
