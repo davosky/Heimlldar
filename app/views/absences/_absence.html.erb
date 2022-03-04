@@ -12,7 +12,7 @@
         &emsp;
         <i class='<%= absence_type_icon?(absence) %>'></i>
         &emsp;&emsp;
-        <%= link_to absences_path, class: 'a-light' do %>
+        <%= link_to request.referer.present? ? request.referer : absences_path, class: 'a-light' do %>
           <i class='fas fa-times'></i>
         <% end %>
       </span>
@@ -33,15 +33,20 @@
     <br/>
     <%= absence.description %>
     <br/>
-    <% if owner?(absence) %>
-      <span class='float-end'>
-        <%= button_to absence, class: 'btn btn-danger btn-sm mb-1', form: { data: { turbo_confirm: "Sicuri di voler eliminare l\' Assenza corrente?" } }, title: 'Elimina Assenza', 'data-toggle' => 'tooltip', 'data-placement' => 'top', method: :delete do %>
-          <i class='fas fa-trash-alt'></i>
+    <div class='row'>
+      <div class='col'>
+        <% if owner?(absence) %>
+          <span class='float-end'>
+            <%= link_to edit_absence_path(absence), title: 'Modifica Assenza', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', class: 'text-warning' do %>
+              <i class='fas fa-edit'></i>
+            <% end %>
+            &emsp;
+            <%= link_to absence, class: 'text-danger', form: { data: { turbo_confirm: "Sicuri di voler eliminare l\' Assenza corrente?" } }, title: 'Elimina Assenza', 'data-toggle' => 'tooltip', 'data-placement' => 'top', method: :delete do %>
+              <i class='fas fa-trash-alt'></i>
+            <% end %>
+          </span>
         <% end %>
-        <%= link_to edit_absence_path(absence), title: 'Modifica Assenza', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', class: 'btn btn-warning btn-sm mb-1' do %>
-          <i class='fas fa-pencil-alt'></i>
-        <% end %>
-      </span>
-    <% end %>
+      </div>
+    </div>
   </div>
 </div>
