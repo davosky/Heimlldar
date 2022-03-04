@@ -7,6 +7,8 @@ class Ability
     can :manage, :all if user.present? && user.admin == true
 
     if user.present?
+      can :read, Absence
+      
       can :manage, Absence do |absence|
         absence.user == user
       end
