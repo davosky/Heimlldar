@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :absences do
     collection do
       get :monthly_view
+      get :delete_error
     end
   end
 end

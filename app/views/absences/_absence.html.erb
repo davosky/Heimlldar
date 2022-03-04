@@ -33,5 +33,10 @@
     <br/>
     <%= absence.description %>
     <br/>
+    <span class='float-end'>
+      <%= button_to absence, class: 'btn btn-danger btn-sm', form: { data: { turbo_confirm: "Sicuri di voler eliminare l\' Assenza corrente?" } }, title: 'Elimina Assenza', 'data-toggle' => 'tooltip', 'data-placement' => 'top', method: :delete do %>
+        <i class='fas fa-trash-alt'></i>
+      <% end %>
+    </span>
   </div>
 </div>

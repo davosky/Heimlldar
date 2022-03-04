@@ -19,6 +19,9 @@ class AbsencesController < ApplicationController
   def edit
   end
 
+  def delete_error
+  end
+
   def create
     @absence = current_user.absences.build(absence_params)
 
@@ -50,12 +53,12 @@ class AbsencesController < ApplicationController
   end
 
   def destroy
-    @absence.destroy
+      @absence.destroy
 
-    respond_to do |format|
-      format.html { redirect_to absences_url, notice: "Assenza eliminata con successo." }
-      format.json { head :no_content }
-    end
+      respond_to do |format|
+        format.html { redirect_to absences_url, notice: "Assenza eliminata con successo." }
+        format.json { head :no_content }
+      end
   end
 
   private
