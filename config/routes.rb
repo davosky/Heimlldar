@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get 'dashboard/index'
   get 'dashboard/credits'
+  get 'dashboard/authorization'
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 

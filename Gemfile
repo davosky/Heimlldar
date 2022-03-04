@@ -5,6 +5,7 @@ ruby '3.0.3'
 
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', require: false
+gem 'cancancan', '~> 3.3'
 gem 'cssbundling-rails'
 gem 'devise', '~> 4.8', '>= 4.8.1'
 gem 'devise-i18n', '~> 1.10', '>= 1.10.1'
