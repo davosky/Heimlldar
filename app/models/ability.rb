@@ -17,6 +17,10 @@ class Ability
       can :manage, Absence do |absence|
         absence.user == user
       end
+
+      can :manage, Howto if user.manager == true
+
+      can :read, Howto
     end
 
   end

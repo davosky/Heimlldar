@@ -1,25 +1,22 @@
 class HowtosController < ApplicationController
   before_action :set_howto, only: %i[ show edit update destroy ]
 
-  # GET /howtos or /howtos.json
+  load_and_authorize_resource
+
   def index
     @howtos = Howto.all
   end
 
-  # GET /howtos/1 or /howtos/1.json
   def show
   end
 
-  # GET /howtos/new
   def new
     @howto = Howto.new
   end
 
-  # GET /howtos/1/edit
   def edit
   end
 
-  # POST /howtos or /howtos.json
   def create
     @howto = Howto.new(howto_params)
 
@@ -34,7 +31,6 @@ class HowtosController < ApplicationController
     end
   end
 
-  # PATCH/PUT /howtos/1 or /howtos/1.json
   def update
     respond_to do |format|
       if @howto.update(howto_params)
@@ -47,7 +43,6 @@ class HowtosController < ApplicationController
     end
   end
 
-  # DELETE /howtos/1 or /howtos/1.json
   def destroy
     @howto.destroy
 
@@ -58,12 +53,10 @@ class HowtosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_howto
       @howto = Howto.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def howto_params
       params.require(:howto).permit(:name, :topic_id, :description)
     end
