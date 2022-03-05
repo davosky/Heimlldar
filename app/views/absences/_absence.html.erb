@@ -12,41 +12,40 @@
         &emsp;
         <i class='<%= absence_type_icon?(absence) %>'></i>
         &emsp;&emsp;
-        <%= link_to request.referer.present? ? request.referer : absences_path, class: 'a-light' do %>
-          <i class='fas fa-times'></i>
+        <%# link_to request.referer.present? ? request.referer : absences_path, class: 'a-light' do %>
+          <%= link_to absences_url , class: 'a-light' do %>
+            <i class='fas fa-times'></i>
+          <% end %>
+        </span>
+      </strong>
+    </div>
+    <div class='card-body'>
+      <strong class='text-<%= absence_type?(absence) %>'>
+        Data Inizio:&emsp;<%= l(absence.start_time, format: '%A %d %B %Y dalle: %H:%M') %>
+        <br/>
+        Data Fine&nbsp;&nbsp;:&emsp;<%= l(absence.end_time, format: '%A %d %B %Y dalle: %H:%M') %>
+      </strong>
+      <hr/>
+      Zona:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= absence.user.zone.name %>
+      <br/>
+      Reparto:&nbsp;&nbsp;&nbsp;<%= absence.user.department.name %>
+      <hr />
+      Note:
+      <br/>
+      <%= absence.description %>
+      <hr/>
+      <br/>
+      <div class='row'>
+      </div>
+      <span class='float-start'>
+        <%= link_to edit_absence_path(@absence), class: 'btn btn-outline-light btn-sm', title: 'Modifica il record corrente', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom' do %>
+          <i class='fas fa-edit text-warning'></i>
         <% end %>
       </span>
-    </strong>
-  </div>
-  <div class='card-body'>
-    <strong class='text-<%= absence_type?(absence) %>'>
-      Data Inizio:&emsp;<%= l(absence.start_time, format: '%A %d %B %Y dalle: %H:%M') %>
-      <br/>
-      Data Fine&nbsp;&nbsp;:&emsp;<%= l(absence.end_time, format: '%A %d %B %Y dalle: %H:%M') %>
-    </strong>
-    <hr/>
-    Zona:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= absence.user.zone.name %>
-    <br/>
-    Reparto:&nbsp;&nbsp;&nbsp;<%= absence.user.department.name %>
-    <hr />
-    Note:
-    <br/>
-    <%= absence.description %>
-    <br/>
-    <div class='row'>
-      <div class='col'>
-        <% if owner?(absence) %>
-          <span class='float-end'>
-            <%= link_to edit_absence_path(absence), title: 'Modifica Assenza', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', class: 'text-warning' do %>
-              <i class='fas fa-edit'></i>
-            <% end %>
-            &emsp;
-            <%= link_to absence, class: 'text-danger', form: { data: { turbo_confirm: "Sicuri di voler eliminare l\' Assenza corrente?" } }, title: 'Elimina Assenza', 'data-toggle' => 'tooltip', 'data-placement' => 'top', method: :delete do %>
-              <i class='fas fa-trash-alt'></i>
-            <% end %>
-          </span>
+      <span class='float-end'>
+        <%= button_to @absence, method: :delete, form: {data: {turbo_confirm: 'Sicuri di voler eliminare il record corrente?'}}, class: 'btn btn-outline-light btn-sm', title: 'Elimina il record corrente', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom' do %>
+          <i class='fas fa-trash-alt text-danger'></i>
         <% end %>
-      </div>
+      </span>
     </div>
   </div>
-</div>

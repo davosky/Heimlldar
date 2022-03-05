@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_04_081349) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_04_174833) do
   create_table "absence_types", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "name"
     t.integer "position"
@@ -41,6 +41,22 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_04_081349) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "howtos", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
+    t.string "name"
+    t.bigint "topic_id", null: false
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["topic_id"], name: "index_howtos_on_topic_id"
+  end
+
+  create_table "topics", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
+    t.string "name"
+    t.integer "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -58,6 +74,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_04_081349) do
     t.datetime "updated_at", null: false
     t.bigint "department_id"
     t.bigint "zone_id"
+    t.string "username", default: "", null: false
     t.index ["department_id"], name: "index_users_on_department_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -73,6 +90,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_04_081349) do
 
   add_foreign_key "absences", "absence_types"
   add_foreign_key "absences", "users"
+  add_foreign_key "howtos", "topics"
   add_foreign_key "users", "departments"
   add_foreign_key "users", "zones"
 end

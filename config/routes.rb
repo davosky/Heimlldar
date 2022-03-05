@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :howtos
   root to: 'dashboard#index'
 
   get 'dashboard/index'

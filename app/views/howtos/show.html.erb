@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+<%= render @howto %>
+<div>
+  <%= link_to "Edit this howto", edit_howto_path(@howto) %> |
+  <%= link_to "Back to howtos", howtos_path %>
+  <%= button_to "Destroy this howto", 
+                  howto_path(@howto), 
+                  method: :delete, 
+                  confirm: 'Sei sicuro di voler Eliminare il Record Corrente?' %>
+</div>

@@ -1,0 +1,32 @@
+<%= form_with(model: howto) do |form| %>
+  <% if howto.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(howto.errors.count, "error") %> prohibited this howto from being saved:</h2>
+
+      <ul>
+        <% howto.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :topic_id, style: "display: block" %>
+    <%= form.text_field :topic_id %>
+  </div>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
