@@ -38,13 +38,17 @@
       <div class='row'>
       </div>
       <span class='float-start'>
-        <%= link_to edit_absence_path(@absence), class: 'btn btn-outline-light btn-sm', title: 'Modifica il record corrente', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom' do %>
-          <i class='fas fa-edit text-warning'></i>
+        <% if owner?(absence) %>
+          <%= link_to edit_absence_path(@absence), class: 'btn btn-outline-light btn-sm', title: 'Modifica il record corrente', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom' do %>
+            <i class='fas fa-edit text-warning'></i>
+          <% end %>
         <% end %>
       </span>
       <span class='float-end'>
-        <%= button_to @absence, method: :delete, form: {data: {turbo_confirm: 'Sicuri di voler eliminare il record corrente?'}}, class: 'btn btn-outline-light btn-sm', title: 'Elimina il record corrente', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom' do %>
-          <i class='fas fa-trash-alt text-danger'></i>
+        <% if owner?(absence) %>
+          <%= button_to @absence, method: :delete, form: {data: {turbo_confirm: 'Sicuri di voler eliminare il record corrente?'}}, class: 'btn btn-outline-light btn-sm', title: 'Elimina il record corrente', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom' do %>
+            <i class='fas fa-trash-alt text-danger'></i>
+          <% end %>
         <% end %>
       </span>
     </div>
