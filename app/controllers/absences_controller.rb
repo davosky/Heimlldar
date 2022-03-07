@@ -25,7 +25,11 @@ class AbsencesController < ApplicationController
   end
 
   def create
-    @absence = current_user.absences.build(absence_params)
+    if current_user.admin == true || current_user.manager == true
+      @absence = Absence.new(absence_params)
+    else
+      @absence = current_user.absences.build(absence_params)
+    end
 
     @absence.creator = "#{current_user.last_name} #{current_user.first_name}"
 
