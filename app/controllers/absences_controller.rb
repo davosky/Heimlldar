@@ -19,6 +19,14 @@ class AbsencesController < ApplicationController
     end
   end
 
+  def list_view
+    unless current_user.admin == true || current_user.manager == true
+      @absences = Absence.where(user_id: current_user)
+    else
+      @absences = Absence.all
+    end
+  end
+
   def show
   end
 

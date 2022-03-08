@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     collection do
       get :monthly_view
       get :delete_error
+      get :list_view
     end
   end
 end

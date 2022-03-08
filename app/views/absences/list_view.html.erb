@@ -1,0 +1,60 @@
+<h3 class='text-primary'>
+  <%= inline_svg_tag 'icon_list.svg', size: '48px * 48px', preserve_aspect_ratio: 'xMaxYMax meet' %>
+  &emsp;
+  Elenco Assenze
+</h3>
+<hr class='hr-primary' />
+<table class='table table-striped'>
+  <thead>
+    <tr>
+      <td class='text-primary'>
+        <strong>
+          Operatore:
+        </strong>
+      </td>
+      <td class='text-primary'>
+        <strong>
+          Periodo:
+        </strong>
+      </td>
+      <td class='text-primary'>
+        <strong>
+          Tipo Assenza:
+        </strong>
+      </td>
+      <td class='text-primary'>
+        <strong>
+          Parziale Ore Assenza:
+        </strong>
+      </td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @absences.each do |absence| %>
+      <tr>
+        <td>
+          <strong class='text-primary'>
+            <%= "#{absence.user.last_name} #{absence.user.first_name}".truncate(19) %>
+          </strong>
+        </td>
+        <td>
+          <strong class='text-primary'>
+            <%= l(absence.start_time, format: '%d-%m-%Y') %>
+            <i class='fas fa-arrows-alt-h text-primary'></i>
+            <%= l(absence.end_time, format: '%d-%m-%Y') %>
+          </strong>
+        </td>
+        <td>
+          <strong class='text-primary'>
+            <%= absence.absence_type.name %>
+          </strong>
+        </td>
+        <td>
+          <strong class='text-primary'>
+            <%= distance_of_time_in_words(absence['start_time'], absence['end_time'])%>
+          </strong>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
