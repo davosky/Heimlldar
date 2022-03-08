@@ -26,7 +26,9 @@
               <div class='mb-1 text-<%= absence_type?(absence) %>'>
                 <i class='fas fa-user-circle'></i>
                 &nbsp;
-                <%= "#{absence.user.last_name} #{absence.user.first_name}".truncate(19) %>
+                <strong>
+                  <%= "#{absence.user.last_name} #{absence.user.first_name}".truncate(19) %>
+                </strong>
               </div>
               <%= link_to absence_path(absence), title: "#{absence.description}", 'data-toggle' => 'tooltip', 'data-placement' => 'bottom'  do %>
                 <span class='badge bg-<%= absence_type?(absence) %>'>
