@@ -4,11 +4,19 @@ class AbsencesController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @absences = Absence.all
+    unless current_user.admin == true || current_user.manager == true
+      @absences = Absence.where(user_id: current_user)
+    else
+      @absences = Absence.all
+    end
   end
 
   def monthly_view
-    @absences = Absence.all
+    unless current_user.admin == true || current_user.manager == true
+      @absences = Absence.where(user_id: current_user)
+    else
+      @absences = Absence.all
+    end
   end
 
   def show
