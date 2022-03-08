@@ -14,8 +14,8 @@
           &nbsp;
           <%= l(date, format: '%A %d') %>
           &emsp;
-          <span class='text-secondary'>
-            <%= l(date, format: '%b') %>
+          <span class='text-lighter'>
+            <%= l(date, format: '%B') %>
           </span>
         </strong>
       </div>
@@ -36,17 +36,15 @@
                 </span>
               <% end %>
               <br />
-              <i class='far fa-clock'></i>&nbsp;
-              dalle:&nbsp;<%= l(absence.start_time, format: '%H:%M') %>
-              <br />
-              <i class='far fa-clock'></i>&nbsp;
-              alle:&nbsp;<%= l(absence.end_time, format: '%H:%M') %>
-              <br />
-              <small class='text-secondary'>
-                <i class='fas fa-map-marker-alt'></i>
-                &nbsp;
-                <%= absence.user.zone.name %>
-              </small>
+              <i class='fas fa-clock text-<%= absence_type?(absence) %>'></i>&nbsp;
+              <span class='text- text-<%= absence_type?(absence) %>'>
+                <%= l(absence.start_time, format: '%H:%M') %>
+              </span>
+              <i class='fas fa-arrows-alt-h text-<%= absence_type?(absence) %>'></i>
+              <i class='fas fa-clock text-<%= absence_type?(absence) %>'></i>&nbsp;
+              <span class='text- text-<%= absence_type?(absence) %>'>
+                <%= l(absence.end_time, format: '%H:%M') %>
+              </span>
             </div>
           </div>
         <% end %>
