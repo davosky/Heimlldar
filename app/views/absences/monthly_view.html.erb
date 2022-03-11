@@ -22,7 +22,9 @@
       <div class='card-body'>
         <% absences.each do |absence| %>
           <%= link_to absence_path(absence), title: "#{absence.description}", 'data-toggle' => 'tooltip', 'data-placement' => 'bottom'  do %>
-            <span class='badge bg-primary %> mb-1'>
+            <span style='color: <%= "#{absence.user.color.code}" %>;'>
+              <i class='far fa-user'></i>
+              &nbsp;
               <%= "#{absence.user.last_name} #{absence.user.first_name}".truncate(19) %>
             </span>
           <% end %>

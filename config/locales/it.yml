@@ -37,6 +37,8 @@ it:
         reset_password_token: Token Reset Password
         reset_password_sent_at: Password Resettata Inviata il
         remember_created_at: Ricorda Creato il
+        color: Colore
+        color_id: Colore
       department:
         name: Reparto
         position: Posizione
@@ -73,6 +75,12 @@ it:
         created_at: Creato il
         updated_at: Aggiornato il
         howtos: Manuali
+      color:
+        name: Colore
+        code: Codice
+        created_at: Creato il
+        updated_at: Aggiornato il
+        users: Utenti
     errors:
       messages:
         record_invalid: "Validazione fallita: %{errors}"

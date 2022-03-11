@@ -83,7 +83,7 @@
     <% @absences.each do |absence| %>
       <tr>
         <td>
-          <strong class='text-primary'>
+          <strong style='color: <%= "#{absence.user.color.code}" %>;'>
             <i class='far fa-user text-primary'></i>
             &emsp;
             <%= "#{absence.user.last_name} #{absence.user.first_name}".truncate(19) %>

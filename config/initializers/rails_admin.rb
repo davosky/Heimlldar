@@ -27,8 +27,8 @@ RailsAdmin.config do |config|
 
   config.model 'Absence' do
     visible true
-    label 'Assenza'
-    label_plural 'Assenze'
+    label 'Ferie'
+    label_plural 'Ferie'
   end
 
   config.model 'Howto' do
@@ -40,7 +40,13 @@ RailsAdmin.config do |config|
   config.model 'Topic' do
     visible true
     label 'Argomento'
-    label_plural 'Manuali'
+    label_plural 'Argomenti'
+  end
+
+  config.model 'Color' do
+    visible true
+    label 'Colore'
+    label_plural 'Colori'
   end
 
   config.actions do

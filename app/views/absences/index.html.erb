@@ -24,16 +24,13 @@
           <div class='card border-primary %> mb-3'>
             <div class='card-body'>
               <div class='mb-1 text-primary %>'>
-                <i class='fas fa-user-circle'></i>
-                &nbsp;
-                <strong>
-                  <%= "#{absence.user.last_name} #{absence.user.first_name}".truncate(19) %>
-                </strong>
-              </div>
-              <%= link_to absence_path(absence), title: "#{absence.description}", 'data-toggle' => 'tooltip', 'data-placement' => 'bottom'  do %>
-                <span class='badge bg-primary %>'>
-                  FERIE
-                </span>
+                <%= link_to absence_path(absence), title: "#{absence.description}", 'data-toggle' => 'tooltip', 'data-placement' => 'bottom'  do %>
+                  <i class='far fa-user'></i>
+                  &nbsp;
+                  <strong style='color: <%= "#{absence.user.color.code}" %>;'>
+                    <%= "#{absence.user.last_name} #{absence.user.first_name}".truncate(19) %>
+                  </strong>
+                </div>
               <% end %>
             </div>
           </div>
