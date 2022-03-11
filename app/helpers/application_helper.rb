@@ -3,6 +3,10 @@ module ApplicationHelper
         current_user.admin == true
     end
 
+    def admanager?
+        current_user.admin == true || current_user.manager == true
+    end
+
     def full_user
         "#{current_user.first_name} #{current_user.last_name}"
     end

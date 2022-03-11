@@ -214,6 +214,10 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.0.6)
+    ransack (2.6.0)
+      activerecord (>= 6.0.4)
+      activesupport (>= 6.0.4)
+      i18n
     redis (4.6.0)
     regexp_parser (2.2.1)
     reline (0.3.1)
@@ -299,6 +303,7 @@ DEPENDENCIES
   rails-i18n (~> 7.0, >= 7.0.2)
   rails_admin (>= 3.0.0.beta)
   rails_admin-i18n (~> 1.18)
+  ransack (~> 2.6)
   redis (~> 4.0)
   sassc-rails
   selenium-webdriver
