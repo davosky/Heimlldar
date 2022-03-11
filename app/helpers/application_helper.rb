@@ -11,27 +11,11 @@ module ApplicationHelper
         "#{absence.user.first_name} #{absence.user.last_name}"
     end
 
-    def absence_type?(absence)
-        if absence.absence_type.name == 'MALATTIA'
-            "danger"
-        elsif absence.absence_type.name == 'PERMESSO'
-            "warning"
-        else
-            "info"
-        end
-    end
-
-    def absence_type_icon?(absence)
-        if absence.absence_type.name == 'MALATTIA'
-            "fas fa-thermometer-three-quarters"
-        elsif absence.absence_type.name == 'PERMESSO'
-            "fas fa-bath"
-        else
-            "fas fa-plane"
-        end
-    end
-
     def owner?(absence)
         current_user.admin == true || current_user.manager == true || current_user.id == absence.user_id
+    end
+
+    def absence_duration(absence)
+        TimeDifference.between(absence.start_time, absence.end_time).in_days + 1
     end
 end

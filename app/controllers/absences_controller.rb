@@ -88,6 +88,6 @@ class AbsencesController < ApplicationController
     end
 
     def absence_params
-      params.require(:absence).permit(:name, :start_time, :end_time, :user_id, :absence_type_id, :description, :creator, :updater)
+      params.require(:absence).permit(:name, :start_time, :end_time, :user_id, :description, :creator, :updater)
     end
 end

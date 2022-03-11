@@ -8,12 +8,12 @@ default: &default
 
 development:
   <<: *default
-  database: Heimdallr_development
+  database: Heimdallr_d
 
 test:
   <<: *default
-  database: Heimdallr_test
+  database: Heimdallr_t
 
 production:
   <<: *default
-  database: Heimdallr_production
+  database: Heimdallr_p

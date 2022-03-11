@@ -1,5 +1,5 @@
-<div class='card border-<%= absence_type?(absence) %> shadow' id='<%= dom_id absence %>'>
-  <div class='card-header bg-<%= absence_type?(absence) %> text-white'>
+<div class='card border-info shadow' id='<%= dom_id absence %>'>
+  <div class='card-header bg-info %> text-white'>
     <strong>
       <span class='float-start'>
         <i class='fas fa-user-circle'></i>
@@ -7,49 +7,43 @@
         <%= absence_full_user(absence).upcase %>
       </span>
       <span class='float-end'>
-        &emsp;
-        <%= absence.absence_type.name %>
-        &emsp;
-        <i class='<%= absence_type_icon?(absence) %>'></i>
-        &emsp;&emsp;
-        <%# link_to request.referer.present? ? request.referer : absences_path, class: 'a-light' do %>
-          <%= link_to absences_url , class: 'a-light' do %>
-            <i class='fas fa-times'></i>
-          <% end %>
-        </span>
-      </strong>
-    </div>
-    <div class='card-body'>
-      <strong class='text-<%= absence_type?(absence) %>'>
-        Data Inizio:&emsp;<%= l(absence.start_time, format: '%A %d %B %Y dalle: %H:%M') %>
-        <br/>
-        Data Fine&nbsp;&nbsp;:&emsp;<%= l(absence.end_time, format: '%A %d %B %Y dalle: %H:%M') %>
-      </strong>
-      <hr/>
-      Zona:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= absence.user.zone.name %>
-      <br/>
-      Reparto:&nbsp;&nbsp;&nbsp;<%= absence.user.department.name %>
-      <hr />
-      Note:
-      <br/>
-      <%= absence.description %>
-      <hr/>
-      <br/>
-      <div class='row'>
-      </div>
-      <span class='float-start'>
-        <% if owner?(absence) %>
-          <%= link_to edit_absence_path(@absence), class: 'btn btn-outline-light btn-sm', title: 'Modifica il record corrente', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom' do %>
-            <i class='fas fa-edit text-warning'></i>
-          <% end %>
+        <%= link_to absences_url , class: 'a-light' do %>
+          <i class='fas fa-times'></i>
         <% end %>
       </span>
-      <span class='float-end'>
-        <% if owner?(absence) %>
-          <%= button_to @absence, method: :delete, form: {data: {turbo_confirm: 'Sicuri di voler eliminare il record corrente?'}}, class: 'btn btn-outline-light btn-sm', title: 'Elimina il record corrente', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom' do %>
-            <i class='fas fa-trash-alt text-danger'></i>
-          <% end %>
-        <% end %>
-      </span>
-    </div>
+    </strong>
   </div>
+  <div class='card-body'>
+    <strong class='text-info'>
+      Data Inizio:&emsp;<%= l(absence.start_time, format: '%A %d %B %Y dalle: %H:%M') %>
+      <br/>
+      Data Fine&nbsp;&nbsp;:&emsp;<%= l(absence.end_time, format: '%A %d %B %Y dalle: %H:%M') %>
+    </strong>
+    <hr/>
+    Zona:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= absence.user.zone.name %>
+    <br/>
+    Reparto:&nbsp;&nbsp;&nbsp;<%= absence.user.department.name %>
+    <hr />
+    Note:
+    <br/>
+    <%= absence.description %>
+    <hr/>
+    <br/>
+    <div class='row'>
+    </div>
+    <span class='float-start'>
+      <% if owner?(absence) %>
+        <%= link_to edit_absence_path(@absence), class: 'btn btn-outline-light btn-sm', title: 'Modifica il record corrente', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom' do %>
+          <i class='fas fa-edit text-warning'></i>
+        <% end %>
+      <% end %>
+    </span>
+    <span class='float-end'>
+      <% if owner?(absence) %>
+        <%= button_to @absence, method: :delete, form: {data: {turbo_confirm: 'Sicuri di voler eliminare il record corrente?'}}, class: 'btn btn-outline-light btn-sm', title: 'Elimina il record corrente', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom' do %>
+          <i class='fas fa-trash-alt text-danger'></i>
+        <% end %>
+      <% end %>
+    </span>
+  </div>
+</div>

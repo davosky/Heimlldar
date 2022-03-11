@@ -2,6 +2,11 @@
   <%= inline_svg_tag 'icon_list.svg', size: '48px * 48px', preserve_aspect_ratio: 'xMaxYMax meet' %>
   &emsp;
   Elenco Assenze
+  <span class='float-end'>
+    <strong>
+      FERIE
+    </strong>
+  </span>
 </h3>
 <hr class='hr-primary' />
 <table class='table table-striped'>
@@ -19,42 +24,66 @@
       </td>
       <td class='text-primary'>
         <strong>
-          Tipo Assenza:
         </strong>
       </td>
       <td class='text-primary'>
         <strong>
-          Parziale Ore Assenza:
+          Assenza:
         </strong>
       </td>
     </tr>
   </thead>
   <tbody>
+    <% @total = 0 %>
     <% @absences.each do |absence| %>
       <tr>
         <td>
           <strong class='text-primary'>
+            <i class='far fa-user text-primary'></i>
+            &emsp;
             <%= "#{absence.user.last_name} #{absence.user.first_name}".truncate(19) %>
           </strong>
         </td>
         <td>
           <strong class='text-primary'>
-            <%= l(absence.start_time, format: '%d-%m-%Y') %>
-            <i class='fas fa-arrows-alt-h text-primary'></i>
-            <%= l(absence.end_time, format: '%d-%m-%Y') %>
+            <i class='far fa-calendar text-primary'></i>
+            &emsp;
+            <% unless absence.end_time == absence.start_time %>
+              <%= l(absence.start_time, format: '%d/%m/%Y') %>
+              &nbsp;
+              <i class='fas fa-arrows-alt-h text-primary'></i>
+              &nbsp;
+              <%= l(absence.end_time, format: '%d/%m/%Y') %>
+            <% else %>
+              <%= l(absence.start_time, format: '%d/%m/%Y') %>
+            <% end %>
+          </strong>
+        </td>
+        <td>
+          <strong class='text-primary %>'>
+            FERIE
           </strong>
         </td>
         <td>
           <strong class='text-primary'>
-            <%= absence.absence_type.name %>
-          </strong>
-        </td>
-        <td>
-          <strong class='text-primary'>
-            <%= distance_of_time_in_words(absence['start_time'], absence['end_time'])%>
+            <%= absence_duration(absence).round %>
+            &emsp;
+            <% unless absence_duration(absence) > 1 %>
+              giorno
+            <% else %>
+              giorni
+            <% end %>
           </strong>
         </td>
       </tr>
+      <% @total = @total + absence_duration(absence).round %>
     <% end %>
   </tbody>
 </table>
+<br/>
+<hr class='hr-primary'/>
+<span class='float-end'>
+  <strong class='text-danger'>
+    Totale giorni di assenza:&emsp;<%= @total %>
+  </strong>
+</span>

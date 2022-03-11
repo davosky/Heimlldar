@@ -24,6 +24,7 @@ gem 'sassc-rails'
 gem 'simple_calendar', '~> 2.4', '>= 2.4.3'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
+gem 'time_difference'
 gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[ mingw mswin x64_mingw jruby ]
 

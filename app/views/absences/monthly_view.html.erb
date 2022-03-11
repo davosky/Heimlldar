@@ -1,7 +1,7 @@
 <h3 class='text-primary'>
   <%= inline_svg_tag 'icon_calendar_month.svg', size: '48px * 48px', preserve_aspect_ratio: 'xMaxYMax meet' %>
   &emsp;
-  Calendario Assenze - Mensile
+  Calendario FERIE - Mensile
 </h3>
 <hr class='hr-primary'/>
 <%= month_calendar(events: @absences) do |date, absences| %>
@@ -22,9 +22,7 @@
       <div class='card-body'>
         <% absences.each do |absence| %>
           <%= link_to absence_path(absence), title: "#{absence.description}", 'data-toggle' => 'tooltip', 'data-placement' => 'bottom'  do %>
-            <span class='badge bg-<%= absence_type?(absence) %> mb-1'>
-              <i class='<%= absence_type_icon?(absence) %>'></i>
-              &nbsp;
+            <span class='badge bg-primary %> mb-1'>
               <%= "#{absence.user.last_name} #{absence.user.first_name}".truncate(19) %>
             </span>
           <% end %>

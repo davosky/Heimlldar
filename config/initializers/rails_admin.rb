@@ -25,16 +25,22 @@ RailsAdmin.config do |config|
     label_plural 'Zone'
   end
 
-  config.model 'AbsenceType' do
-    visible true
-    label 'Tipo Assenza'
-    label_plural 'Tipi Assenza'
-  end
-
   config.model 'Absence' do
     visible true
     label 'Assenza'
     label_plural 'Assenze'
+  end
+
+  config.model 'Howto' do
+    visible true
+    label 'Manuale'
+    label_plural 'Manuali'
+  end
+  
+  config.model 'Topic' do
+    visible true
+    label 'Argomento'
+    label_plural 'Manuali'
   end
 
   config.actions do

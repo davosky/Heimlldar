@@ -1,6 +1,5 @@
 class Absence < ApplicationRecord
   belongs_to :user, optional: true
-  belongs_to :absence_type, optional: true
 
   before_create :set_name
 
@@ -11,7 +10,6 @@ class Absence < ApplicationRecord
 
   validates :start_time, presence: true
   validates :end_time, presence: true
-  validates :absence_type_id, presence: true
 
   validate :congruent_date_range
 

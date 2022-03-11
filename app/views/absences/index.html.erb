@@ -1,7 +1,7 @@
 <h3 class='text-primary'>
   <%= inline_svg_tag 'icon_calendar_week.svg', size: '48px * 48px', preserve_aspect_ratio: 'xMaxYMax meet' %>
   &emsp;
-  Calendario Assenze - Settimanale
+  Calendario FERIE - Settimanale
 </h3>
 <hr class='hr-primary' />
 <%= week_calendar(number_of_weeks: 1, events: @absences) do |date, absences| %>
@@ -21,9 +21,9 @@
       </div>
       <div class='card-body'>
         <% absences.each do |absence| %>
-          <div class='card border-<%= absence_type?(absence) %> mb-3'>
+          <div class='card border-primary %> mb-3'>
             <div class='card-body'>
-              <div class='mb-1 text-<%= absence_type?(absence) %>'>
+              <div class='mb-1 text-primary %>'>
                 <i class='fas fa-user-circle'></i>
                 &nbsp;
                 <strong>
@@ -31,22 +31,10 @@
                 </strong>
               </div>
               <%= link_to absence_path(absence), title: "#{absence.description}", 'data-toggle' => 'tooltip', 'data-placement' => 'bottom'  do %>
-                <span class='badge bg-<%= absence_type?(absence) %>'>
-                  <i class='<%= absence_type_icon?(absence) %>'></i>
-                  &emsp;
-                  <%= absence.absence_type.name %>
+                <span class='badge bg-primary %>'>
+                  FERIE
                 </span>
               <% end %>
-              <br />
-              <i class='fas fa-clock text-<%= absence_type?(absence) %>'></i>&nbsp;
-              <span class='text- text-<%= absence_type?(absence) %>'>
-                <%= l(absence.start_time, format: '%H:%M') %>
-              </span>
-              <i class='fas fa-arrows-alt-h text-<%= absence_type?(absence) %>'></i>
-              <i class='fas fa-clock text-<%= absence_type?(absence) %>'></i>&nbsp;
-              <span class='text- text-<%= absence_type?(absence) %>'>
-                <%= l(absence.end_time, format: '%H:%M') %>
-              </span>
             </div>
           </div>
         <% end %>

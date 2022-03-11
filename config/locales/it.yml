@@ -49,25 +49,30 @@ it:
         created_at: Creato il
         updated_at: Aggiornato il
         users: Utenti
-      absence_type:
-        name: Tipo Assenza
-        position: Posizione
-        created_at: Creato il
-        updated_at: Aggiornato il
-        absences: Assenze
       absence:
         name: Codice
         start_time: Data Inizio
         end_time: Data Fine
         user: Utente
         user_id: Utente (codice)
-        absence_type: Tipo Assenza
-        absence_type_id: Tipo Assenza (codice)
         description: Descrizione
         creator: Creato da
         updater: Aggiornato da
         created_at: Creato il
         updated_at: Aggiornato il
+      howto:
+        name: Manuale
+        topic: Argomento
+        topic_id: Argomento
+        description: Descrizione
+        created_at: Creato il
+        updated_at: Aggiornato il
+      topic:
+        name: Argomento
+        position: Posizione
+        created_at: Creato il
+        updated_at: Aggiornato il
+        howtos: Manuali
     errors:
       messages:
         record_invalid: "Validazione fallita: %{errors}"
