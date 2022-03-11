@@ -5,17 +5,21 @@ class AbsencesController < ApplicationController
 
   def index
     unless current_user.admin == true || current_user.manager == true
-      @absences = Absence.where(user_id: current_user)
+      @q = Absence.ransack(params[:q])
+      @absences = @q.result(distinct: true).where(user_id: current_user)
     else
-      @absences = Absence.all
+      @q = Absence.ransack(params[:q])
+      @absences = @q.result(distinct: true)
     end
   end
 
   def monthly_view
     unless current_user.admin == true || current_user.manager == true
-      @absences = Absence.where(user_id: current_user)
+      @q = Absence.ransack(params[:q])
+      @absences = @q.result(distinct: true).where(user_id: current_user)
     else
-      @absences = Absence.all
+      @q = Absence.ransack(params[:q])
+      @absences = @q.result(distinct: true)
     end
   end
 

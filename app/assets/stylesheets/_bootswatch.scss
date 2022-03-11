@@ -70,11 +70,15 @@ $web-font-path: "https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,
 
 .table {
   .thead-dark th {
-    background-color: $info;
+    background-color: $primary;
   }
 
   td {
     border: none;
+  }
+
+  &:table-striped {
+    color: $primary;
   }
 }
 

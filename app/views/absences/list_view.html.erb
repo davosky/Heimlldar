@@ -1,16 +1,57 @@
 <h3 class='text-primary'>
   <%= inline_svg_tag 'icon_list.svg', size: '48px * 48px', preserve_aspect_ratio: 'xMaxYMax meet' %>
   &emsp;
-  Elenco Assenze
-  <span class='float-end'>
-    <strong>
-      FERIE
-    </strong>
-  </span>
+  Elenco FERIE
 </h3>
 <hr class='hr-primary' />
+<%= search_form_for @q, id: 'search-form', url: list_view_absences_path do |form| %>
+  <% unless !admanager? %>
+    <div class='row'>
+      <div class='col-4'>
+        <div class='input-group mb-1'>
+          <span class='input-group-text text-primary'>
+            <i class='far fa-user text-primary'></i>
+            &emsp;
+            Operatore:&nbsp;
+          </span>
+          <%= form.collection_select(:user_id_eq, User.order('last_name ASC'), :id, :last_name, {:include_blank => true}, {:class => 'form-control'}) %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <div class='row'>
+    <div class='col-4'>
+      <div class='input-group mb-1'>
+        <span class='input-group-text text-primary'>
+          <i class='fas fa-calendar-day'></i>
+          &emsp;
+          Data Inizio:
+        </span>
+        <%= form.date_field :start_time_gteq, class: 'form-control' %>
+      </div>
+    </div>
+    <div class='col-4'>
+      <div class='input-group mb-1'>
+        <span class='input-group-text text-primary'>
+          <i class='fas fa-calendar-day'></i>
+          &emsp;
+          Data Fine:
+        </span>
+        <%= form.date_field :end_time_lteq, class: 'form-control' %>
+      </div>
+    </div>
+    <div class='col-4'>
+      <div class='d-grid gap-2'>
+        <%= button_tag(type: 'submit', class: 'btn btn-outline-primary btn-sm') do %>
+          <i class='fas fa-search'></i>&nbsp;&nbsp;Cerca
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
+<br/>
 <table class='table table-striped'>
-  <thead>
+  <thead class='text-primary'>
     <tr>
       <td class='text-primary'>
         <strong>
@@ -37,7 +78,7 @@
       </td>
     </tr>
   </thead>
-  <tbody>
+  <tbody class='text-primary'>
     <% @total = 0 %>
     <% @absences.each do |absence| %>
       <tr>
@@ -92,7 +133,8 @@
 <br/>
 <hr class='hr-primary'/>
 <span class='float-end'>
-  <strong class='text-danger'>
-    Totale giorni di assenza:&emsp;<%= @total %>
-  </strong>
+  <h4 class='text-primary'>
+    Totale giorni di assenza:&emsp;
+    <%= @total %>
+  </h4>
 </span>

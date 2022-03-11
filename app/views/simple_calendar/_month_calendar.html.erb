@@ -14,16 +14,15 @@
       <i class='fas fa-angle-right'></i>
     <% end %>
   </div>
-  <br/>
   <table class='table'>
-    <thead>
+    <thead class='text-primary'>
       <tr>
         <% date_range.slice(0, 7).each do |day| %>
-          <th class='text-primary'><%= t('date.abbr_day_names')[day.wday] %></th>
+          <th><%= t('date.abbr_day_names')[day.wday] %></th>
         <% end %>
       </tr>
     </thead>
-    <tbody>
+    <tbody class='text-primary'>
       <% date_range.each_slice(7) do |week| %>
         <tr>
           <% week.each do |day| %>
