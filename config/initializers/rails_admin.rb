@@ -31,6 +31,12 @@ RailsAdmin.config do |config|
     label_plural 'Ferie'
   end
 
+  config.model 'Disease' do
+    visible true
+    label 'Malattia'
+    label_plural 'Malattie'
+  end
+
   config.model 'Howto' do
     visible true
     label 'Manuale'

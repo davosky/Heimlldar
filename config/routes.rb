@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :howtos
   root to: 'dashboard#index'
 
   get 'dashboard/index'
@@ -15,7 +14,17 @@ Rails.application.routes.draw do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
 
+  resources :howtos
+
   resources :absences do
+    collection do
+      get :monthly_view
+      get :delete_error
+      get :list_view
+    end
+  end
+
+  resources :diseases do
     collection do
       get :monthly_view
       get :delete_error

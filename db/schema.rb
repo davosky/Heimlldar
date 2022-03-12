@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_11_153841) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_11_153844) do
   create_table "absences", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
     t.integer "name"
     t.date "start_time"
@@ -37,6 +37,20 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_11_153841) do
     t.integer "position"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "diseases", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
+    t.integer "name"
+    t.date "start_time"
+    t.date "end_time"
+    t.bigint "user_id"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "creator"
+    t.string "updater"
+    t.boolean "cancelled"
+    t.index ["user_id"], name: "index_diseases_on_user_id"
   end
 
   create_table "howtos", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
@@ -89,6 +103,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_11_153841) do
   end
 
   add_foreign_key "absences", "users"
+  add_foreign_key "diseases", "users"
   add_foreign_key "howtos", "topics"
   add_foreign_key "users", "colors"
   add_foreign_key "users", "departments"

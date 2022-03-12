@@ -1,0 +1,41 @@
+<h3 class='text-primary'>
+  <%= inline_svg_tag 'icon_calendar_week.svg', size: '48px * 48px', preserve_aspect_ratio: 'xMaxYMax meet' %>
+  &emsp;
+  Calendario MALATTIA - Settimanale
+</h3>
+<hr class='hr-primary' />
+<%= week_calendar(number_of_weeks: 1, events: @diseases) do |date, diseases| %>
+  <% if date.wday == 0 || date.wday == 6 %>
+  <% else %>
+    <div class='card bg-light mb-3 shadow'>
+      <div class='card-header text-center'>
+        <strong>
+          <i class='fas fa-calendar-day'></i>
+          &nbsp;
+          <%= l(date, format: '%A %d') %>
+          &emsp;
+          <span class='text-lighter'>
+            <%= l(date, format: '%B') %>
+          </span>
+        </strong>
+      </div>
+      <div class='card-body'>
+        <% diseases.each do |disease| %>
+          <div class='card mb-1' style='border-color: <%= "#{disease.user.color.code}" %>;'>
+            <div class='card-body'>
+              <div class='mb-1 text-primary %>'>
+                <%= link_to disease_path(disease), title: "#{disease.description}", 'data-toggle' => 'tooltip', 'data-placement' => 'bottom'  do %>
+                  <strong style='color: <%= "#{disease.user.color.code}" %>;'>
+                    <i class='far fa-user'></i>
+                    &nbsp;
+                    <%= "#{disease.user.last_name} #{disease.user.first_name}".truncate(19) %>
+                  </strong>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

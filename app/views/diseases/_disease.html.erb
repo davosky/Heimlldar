@@ -1,0 +1,50 @@
+<div class='card border-primary shadow' id='<%= dom_id disease %>'>
+  <div class='card-header bg-primary %> text-white'>
+    <strong>
+      <span class='float-start'>
+        <i class='fas fa-user-circle'></i>
+        &nbsp;
+        <%= disease_full_user(disease).upcase %>
+        &emsp; Assenza per MALATTIA
+      </span>
+      <span class='float-end'>
+        <%= link_to diseases_url , class: 'a-light' do %>
+          <i class='fas fa-times'></i>
+        <% end %>
+      </span>
+    </strong>
+  </div>
+  <div class='card-body'>
+    <strong class='text-primary'>
+      Data Inizio:&emsp;<%= l(disease.start_time, format: '%A %d %B %Y dalle: %H:%M') %>
+      <br/>
+      Data Fine&nbsp;&nbsp;:&emsp;<%= l(disease.end_time, format: '%A %d %B %Y dalle: %H:%M') %>
+    </strong>
+    <hr/>
+    Zona:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= disease.user.zone.name %>
+    <br/>
+    Reparto:&nbsp;&nbsp;&nbsp;<%= disease.user.department.name %>
+    <hr />
+    Note:
+    <br/>
+    <%= disease.description %>
+    <hr/>
+    <br/>
+    <div class='row'>
+    </div>
+    <span class='float-start'>
+      <% if owner?(disease) %>
+        <%= link_to edit_disease_path(@disease), class: 'btn btn-outline-light btn-sm', title: 'Modifica il record corrente', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom' do %>
+          <i class='fas fa-edit text-warning'></i>
+        <% end %>
+      <% end %>
+    </span>
+    <span class='float-end'>
+      <% if owner?(disease) %>
+        <%= button_to @disease, method: :delete, form: {data: {turbo_confirm: 'Sicuri di voler eliminare il record corrente?'}}, class: 'btn btn-outline-light btn-sm', title: 'Elimina il record corrente', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom' do %>
+          <i class='fas fa-trash-alt text-danger'></i>
+        <% end %>
+      <% end %>
+    </span>
+  </div>
+</div>

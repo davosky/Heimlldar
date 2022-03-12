@@ -7,6 +7,7 @@ class User < ApplicationRecord
   belongs_to :zone, optional: true
   belongs_to :color
   has_many :absences
+  has_many :diseases
 
   validates :first_name, presence: true
   validates :last_name, presence: true

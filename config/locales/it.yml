@@ -39,6 +39,8 @@ it:
         remember_created_at: Ricorda Creato il
         color: Colore
         color_id: Colore
+        absences: Ferie
+        diseases: Malattia
       department:
         name: Reparto
         position: Posizione
@@ -52,6 +54,17 @@ it:
         updated_at: Aggiornato il
         users: Utenti
       absence:
+        name: Codice
+        start_time: Data Inizio
+        end_time: Data Fine
+        user: Utente
+        user_id: Utente (codice)
+        description: Descrizione
+        creator: Creato da
+        updater: Aggiornato da
+        created_at: Creato il
+        updated_at: Aggiornato il
+      disease:
         name: Codice
         start_time: Data Inizio
         end_time: Data Fine

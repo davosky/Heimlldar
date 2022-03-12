@@ -1,0 +1,140 @@
+<h3 class='text-primary'>
+  <%= inline_svg_tag 'icon_list.svg', size: '48px * 48px', preserve_aspect_ratio: 'xMaxYMax meet' %>
+  &emsp;
+  Elenco MALATTIA
+</h3>
+<hr class='hr-primary' />
+<%= search_form_for @q, id: 'search-form', url: list_view_diseases_path do |form| %>
+  <% unless !admanager? %>
+    <div class='row'>
+      <div class='col-4'>
+        <div class='input-group mb-1'>
+          <span class='input-group-text text-primary'>
+            <i class='far fa-user text-primary'></i>
+            &emsp;
+            Operatore:&nbsp;
+          </span>
+          <%= form.collection_select(:user_id_eq, User.order('last_name ASC'), :id, :last_name, {:include_blank => true}, {:class => 'form-control'}) %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <div class='row'>
+    <div class='col-4'>
+      <div class='input-group mb-1'>
+        <span class='input-group-text text-primary'>
+          <i class='fas fa-calendar-day'></i>
+          &emsp;
+          Data Inizio:
+        </span>
+        <%= form.date_field :start_time_gteq, class: 'form-control' %>
+      </div>
+    </div>
+    <div class='col-4'>
+      <div class='input-group mb-1'>
+        <span class='input-group-text text-primary'>
+          <i class='fas fa-calendar-day'></i>
+          &emsp;
+          Data Fine:
+        </span>
+        <%= form.date_field :end_time_lteq, class: 'form-control' %>
+      </div>
+    </div>
+    <div class='col-4'>
+      <div class='d-grid gap-2'>
+        <%= button_tag(type: 'submit', class: 'btn btn-outline-primary btn-sm') do %>
+          <i class='fas fa-search'></i>&nbsp;&nbsp;Cerca
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
+<br/>
+<table class='table table-striped'>
+  <thead class='text-primary'>
+    <tr>
+      <td class='text-primary'>
+        <strong>
+          Operatore:
+        </strong>
+      </td>
+      <td class='text-primary'>
+        <strong>
+          Periodo:
+        </strong>
+      </td>
+      <td class='text-primary'>
+        <strong>
+          Mese:
+        </strong>
+      </td>
+      <td class='text-primary'>
+        <strong></strong>
+      </td>
+      <td class='text-primary'>
+        <strong>
+          Assenza:
+        </strong>
+      </td>
+    </tr>
+  </thead>
+  <tbody class='text-primary'>
+    <% @total = 0 %>
+    <% @diseases.each do |disease| %>
+      <tr>
+        <td>
+          <strong style='color: <%= "#{disease.user.color.code}" %>;'>
+            <i class='far fa-user text-primary'></i>
+            &emsp;
+            <%= "#{disease.user.last_name} #{disease.user.first_name}".truncate(19) %>
+          </strong>
+        </td>
+        <td>
+          <strong class='text-primary'>
+            <i class='far fa-calendar text-primary'></i>
+            &emsp;
+            <% unless disease.end_time == disease.start_time %>
+              <%= l(disease.start_time, format: '%d/%m/%Y') %>
+              &nbsp;
+              <i class='fas fa-arrows-alt-h text-primary'></i>
+              &nbsp;
+              <%= l(disease.end_time, format: '%d/%m/%Y') %>
+            <% else %>
+              <%= l(disease.start_time, format: '%d/%m/%Y') %>
+            <% end %>
+          </strong>
+        </td>
+        <td>
+          <strong class='text-primary %>'>
+            <%= l(disease.start_time, format: '%B') %>
+          </strong>
+        </td>
+        <td>
+          <strong class='text-primary %>'>
+            FERIE
+          </strong>
+        </td>
+        <td>
+          <strong class='text-primary'>
+            <%= disease_duration(disease).round %>
+            &emsp;
+            <% unless disease_duration(disease) > 1 %>
+              giorno
+            <% else %>
+              giorni
+            <% end %>
+          </strong>
+        </td>
+      </tr>
+      <% @total = @total + disease_duration(disease).round %>
+    <% end %>
+  </tbody>
+</table>
+<br/>
+<hr class='hr-primary'/>
+<span class='float-end'>
+  <h4 class='text-primary'>
+    Totale giorni di assenza:&emsp;
+    <%= @total %>
+  </h4>
+</span>

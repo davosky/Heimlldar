@@ -10,23 +10,53 @@
       <ul class='navbar-nav me-auto'>
         <li class='nav-item dropdown'>
           <a class='nav-link dropdown' data-bs-toggle='dropdown' href='#' role='button' aria-haspopup='true' aria-expanded='false'>
-            <i class='fas fa-calendar-alt'></i>&emsp;FERIE
+            <i class='fas fa-plane'></i>&emsp;FERIE
           </a>
           <div class='dropdown-menu'>
             <%= link_to absences_path, class: 'dropdown-item' do %>
-              <i class='fas fa-calendar-week'></i>&emsp;Calendario Settimanale
+              <i class='fas fa-plane'></i>&emsp;
+              <i class='fas fa-calendar-week'></i>&nbsp;&nbsp;Calendario Settimanale FERIE
             <% end %>
             <%= link_to monthly_view_absences_path, class: 'dropdown-item' do %>
-              <i class='far fa-calendar-alt'></i>&emsp;Calendario Mensile
+              <i class='fas fa-plane'></i>&emsp;
+              <i class='far fa-calendar-alt'></i>&nbsp;&nbsp;Calendario Mensile FERIE
             <% end %>
             <%= link_to list_view_absences_path, class: 'dropdown-item' do %>
-              <i class='fas fa-th-list'></i>&emsp;Elenco FERIE
+              <i class='fas fa-plane'></i>&emsp;
+              <i class='fas fa-th-list'></i>&nbsp;&nbsp;Elenco FERIE
             <% end %>
             <%= link_to new_absence_path, class: 'dropdown-item' do %>
+              <i class='fas fa-plane'></i>&emsp;
               <i class='fas fa-plus'></i>
               &nbsp;
               <i class='fas fa-calendar-day'></i>
-              &emsp;Inserisci una Nuova Assenza
+              &nbsp;&nbsp;Inserisci una Nuova Assenza per FERIE
+            <% end %>
+          </div>
+        </li>
+        <li class='nav-item dropdown'>
+          <a class='nav-link dropdown' data-bs-toggle='dropdown' href='#' role='button' aria-haspopup='true' aria-expanded='false'>
+            <i class='fas fa-thermometer-half'></i>&emsp;MALATTIA
+          </a>
+          <div class='dropdown-menu'>
+            <%= link_to diseases_path, class: 'dropdown-item' do %>
+              <i class='fas fa-thermometer-half'></i>&emsp;
+              <i class='fas fa-calendar-week'></i>&nbsp;&nbsp;Calendario Settimanale MALATTIA
+            <% end %>
+            <%= link_to monthly_view_diseases_path, class: 'dropdown-item' do %>
+              <i class='fas fa-thermometer-half'></i>&emsp;
+              <i class='far fa-calendar-alt'></i>&nbsp;&nbsp;Calendario Mensile MALATTIA
+            <% end %>
+            <%= link_to list_view_diseases_path, class: 'dropdown-item' do %>
+              <i class='fas fa-thermometer-half'></i>&emsp;
+              <i class='fas fa-th-list'></i>&nbsp;&nbsp;Elenco MALATTIA
+            <% end %>
+            <%= link_to new_disease_path, class: 'dropdown-item' do %>
+              <i class='fas fa-thermometer-half'></i>&emsp;
+              <i class='fas fa-plus'></i>
+              &nbsp;
+              <i class='fas fa-calendar-day'></i>
+              &nbsp;&nbsp;Inserisci una Nuova Assenza per MALATTIA
             <% end %>
           </div>
         </li>
