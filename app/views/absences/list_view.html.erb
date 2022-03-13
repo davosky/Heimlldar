@@ -5,8 +5,8 @@
 </h3>
 <hr class='hr-primary' />
 <%= search_form_for @q, id: 'search-form', url: list_view_absences_path do |form| %>
-  <% unless !admanager? %>
-    <div class='row'>
+  <div class='row'>
+    <% unless !admanager? %>
       <div class='col-3'>
         <div class='input-group mb-1'>
           <span class='input-group-text text-primary'>
