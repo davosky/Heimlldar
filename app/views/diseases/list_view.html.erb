@@ -1,13 +1,13 @@
 <h3 class='text-primary'>
-  <%= inline_svg_tag 'icon_list.svg', size: '48px * 48px', preserve_aspect_ratio: 'xMaxYMax meet' %>
+  <%= inline_svg_tag 'icon_list_diseases.svg', size: '96px * 48px', preserve_aspect_ratio: 'xMaxYMax meet' %>
   &emsp;
   Elenco MALATTIA
 </h3>
 <hr class='hr-primary' />
 <%= search_form_for @q, id: 'search-form', url: list_view_diseases_path do |form| %>
-  <% unless !admanager? %>
-    <div class='row'>
-      <div class='col-4'>
+  <div class='row'>
+    <% unless !admanager? %>
+      <div class='col-3'>
         <div class='input-group mb-1'>
           <span class='input-group-text text-primary'>
             <i class='far fa-user text-primary'></i>
@@ -17,10 +17,8 @@
           <%= form.collection_select(:user_id_eq, User.order('last_name ASC'), :id, :last_name, {:include_blank => true}, {:class => 'form-control'}) %>
         </div>
       </div>
-    </div>
-  <% end %>
-  <div class='row'>
-    <div class='col-4'>
+    <% end %>
+    <div class='col-3'>
       <div class='input-group mb-1'>
         <span class='input-group-text text-primary'>
           <i class='fas fa-calendar-day'></i>
@@ -30,7 +28,7 @@
         <%= form.date_field :start_time_gteq, class: 'form-control' %>
       </div>
     </div>
-    <div class='col-4'>
+    <div class='col-3'>
       <div class='input-group mb-1'>
         <span class='input-group-text text-primary'>
           <i class='fas fa-calendar-day'></i>
@@ -40,7 +38,7 @@
         <%= form.date_field :end_time_lteq, class: 'form-control' %>
       </div>
     </div>
-    <div class='col-4'>
+    <div class='col-3'>
       <div class='d-grid gap-2'>
         <%= button_tag(type: 'submit', class: 'btn btn-outline-primary btn-sm') do %>
           <i class='fas fa-search'></i>&nbsp;&nbsp;Cerca
