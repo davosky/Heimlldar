@@ -1,0 +1,36 @@
+<h3 class='text-primary'>
+  <%= inline_svg_tag 'icon_calendar_month_permits.svg', size: '96px * 48px', preserve_aspect_ratio: 'xMaxYMax meet' %>
+  &emsp;
+  Calendario PERMESSI - Mensile
+</h3>
+<hr class='hr-primary'/>
+<%= month_calendar(events: @permits) do |date, permits| %>
+  <% if date.wday == 0 || date.wday == 6 %>
+  <% else %>
+    <div class='card bg-light mb-1 shadow'>
+      <div class='card-header text-center'>
+        <span class='text-primary'>
+          <i class='fas fa-calendar-day'></i>
+          &nbsp;
+          <%= l(date, format: '%a %d') %>
+        </span>
+        &emsp;
+        <span class='text-secondary'>
+          <%= l(date, format: '%b') %>
+        </span>
+      </div>
+      <div class='card-body'>
+        <% permits.each do |permit| %>
+          <%= link_to permit_path(permit), title: "#{permit.description}", 'data-toggle' => 'tooltip', 'data-placement' => 'bottom'  do %>
+            <span style='color: <%= "#{permit.user.color.code}" %>;'>
+              <i class='far fa-user'></i>
+              &nbsp;
+              <%= "#{permit.user.last_name} #{permit.user.first_name}".truncate(19) %>
+            </span>
+          <% end %>
+          <br/>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

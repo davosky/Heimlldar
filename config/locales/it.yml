@@ -62,6 +62,7 @@ it:
         description: Descrizione
         creator: Creato da
         updater: Aggiornato da
+        cancelled: Validato
         created_at: Creato il
         updated_at: Aggiornato il
       disease:
@@ -73,6 +74,45 @@ it:
         description: Descrizione
         creator: Creato da
         updater: Aggiornato da
+        cancelled: Validato
+        created_at: Creato il
+        updated_at: Aggiornato il
+      holiday:
+        name: Codice
+        start_time: Data Inizio
+        end_time: Data Fine
+        user: Utente
+        user_id: Utente (codice)
+        description: Descrizione
+        creator: Creato da
+        updater: Aggiornato da
+        cancelled: Validato
+        created_at: Creato il
+        updated_at: Aggiornato il
+      overtime:
+        name: Codice
+        start_time: Data Inizio
+        end_time: Data Fine
+        user: Utente
+        user_id: Utente (codice)
+        description: Descrizione
+        creator: Creato da
+        updater: Aggiornato da
+        cancelled: Validato
+        created_at: Creato il
+        updated_at: Aggiornato il
+      permit:
+        name: Codice
+        start_time: Data Inizio
+        end_time: Data Fine
+        user: Utente
+        user_id: Utente (codice)
+        description: Descrizione
+        creator: Creato da
+        updater: Aggiornato da
+        morning: Mattina
+        afternoon: Pomeriggio
+        cancelled: Validato
         created_at: Creato il
         updated_at: Aggiornato il
       howto:

@@ -1,0 +1,22 @@
+<div class='col-8 offset-2'>
+  <div class='card border-warning shadow'>
+    <div class='card-header bg-warning text-white'>
+      <strong>
+        <span class='float-start'>
+          <i class='fas fa-pencil-alt'></i>
+          &emsp;
+          Modifica PERMESSO
+          &emsp;&emsp;
+        </span>
+        <span class='float-end'>
+          <%= link_to permits_path, class: 'a-light' do %>
+            <i class='fas fa-times'></i>
+          <% end %>
+        </span>
+      </strong>
+    </div>
+    <div class='card-body'>
+      <%= render "form", permit: @permit %>
+    </div>
+  </div>
+</div>

@@ -94,6 +94,6 @@ class DiseasesController < ApplicationController
     end
 
     def disease_params
-      params.require(:disease).permit(:name, :start_time, :end_time, :user_id, :description, :creator, :updater)
+      params.require(:disease).permit(:name, :start_time, :end_time, :user_id, :description, :creator, :updater, :cancelled)
     end
 end

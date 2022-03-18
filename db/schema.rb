@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_11_153844) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_11_153847) do
   create_table "absences", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
     t.integer "name"
     t.date "start_time"
@@ -53,6 +53,20 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_11_153844) do
     t.index ["user_id"], name: "index_diseases_on_user_id"
   end
 
+  create_table "holidays", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
+    t.integer "name"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.bigint "user_id"
+    t.text "description"
+    t.string "creator"
+    t.string "updater"
+    t.boolean "cancelled"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_holidays_on_user_id"
+  end
+
   create_table "howtos", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "name"
     t.bigint "topic_id", null: false
@@ -60,6 +74,36 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_11_153844) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["topic_id"], name: "index_howtos_on_topic_id"
+  end
+
+  create_table "overtimes", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
+    t.integer "name"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.bigint "user_id"
+    t.text "description"
+    t.string "creator"
+    t.string "updater"
+    t.boolean "cancelled"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_overtimes_on_user_id"
+  end
+
+  create_table "permits", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
+    t.integer "name"
+    t.date "start_time"
+    t.date "end_time"
+    t.bigint "user_id"
+    t.text "description"
+    t.string "creator"
+    t.string "updater"
+    t.boolean "cancelled"
+    t.boolean "morning", default: false
+    t.boolean "afternoon", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_permits_on_user_id"
   end
 
   create_table "topics", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
@@ -104,7 +148,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_11_153844) do
 
   add_foreign_key "absences", "users"
   add_foreign_key "diseases", "users"
+  add_foreign_key "holidays", "users"
   add_foreign_key "howtos", "topics"
+  add_foreign_key "overtimes", "users"
+  add_foreign_key "permits", "users"
   add_foreign_key "users", "colors"
   add_foreign_key "users", "departments"
   add_foreign_key "users", "zones"

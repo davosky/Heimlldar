@@ -37,6 +37,24 @@ RailsAdmin.config do |config|
     label_plural 'Malattie'
   end
 
+  config.model 'Holiday' do
+    visible true
+    label 'Ferie Orarie'
+    label_plural 'Ferie Orarie'
+  end
+
+  config.model 'Overtime' do
+    visible true
+    label 'Orarie Straordinarie'
+    label_plural 'Ore Straordinarie'
+  end
+
+  config.model 'Permit' do
+    visible true
+    label 'Permesso'
+    label_plural 'Permessi'
+  end
+
   config.model 'Howto' do
     visible true
     label 'Manuale'

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="512"
+   height="256"
+   viewBox="0 0 135.46666 67.733332"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04, custom)"
+   sodipodi:docname="icon_calendar_week_holidays.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="px"
+     showgrid="false"
+     units="px"
+     width="64px"
+     inkscape:zoom="1.3789151"
+     inkscape:cx="514.17233"
+     inkscape:cy="216.11192"
+     inkscape:window-width="2527"
+     inkscape:window-height="1408"
+     inkscape:window-x="33"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Livello 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       d="m 4.233333,61.383331 c 0,3.505731 2.8442708,6.350001 6.350001,6.350001 H 57.15 c 3.505729,0 6.349999,-2.84427 6.349999,-6.350001 V 25.4 H 4.233333 Z m 8.466666,-25.399998 c 0,-1.164165 0.9525,-2.116667 2.116667,-2.116667 h 38.099999 c 1.164169,0 2.116669,0.952502 2.116669,2.116667 v 8.466666 c 0,1.164168 -0.9525,2.116668 -2.116669,2.116668 H 14.816666 c -1.164167,0 -2.116667,-0.9525 -2.116667,-2.116668 z M 57.15,8.4666669 H 50.799999 V 2.116667 C 50.799999,0.95249995 49.847499,1.5e-7 48.683334,1.5e-7 h -4.233335 c -1.164165,0 -2.116666,0.9524998 -2.116666,2.11666685 V 8.4666669 H 25.4 V 2.116667 C 25.4,0.95249995 24.4475,1.5e-7 23.283333,1.5e-7 H 19.05 c -1.164167,0 -2.116667,0.9524998 -2.116667,2.11666685 v 6.3499999 h -6.349999 c -3.5057302,0 -6.350001,2.8442711 -6.350001,6.3500011 v 6.35 h 59.266666 v -6.35 c 0,-3.50573 -2.84427,-6.3500011 -6.349999,-6.3500011 z"
+       id="path864"
+       style="fill:#325d88;fill-opacity:1;stroke-width:0.132292" />
+    <path
+       d="m 101.71097,11.1125 c -14.323785,0 -25.929178,11.605394 -25.929178,25.929166 0,14.323775 11.605393,25.929167 25.929178,25.929167 14.32379,0 25.92918,-11.605392 25.92918,-25.929167 0,-14.323772 -11.60539,-25.929166 -25.92918,-25.929166 z m 9.67013,32.725116 v 0 l -2.09106,2.613828 a 1.6728494,1.6728494 0 0 1 -2.3514,0.261382 v 0 L 99.933555,41.514447 A 4.1821234,4.1821234 0 0 1 98.36526,38.249254 V 21.986022 a 1.6728494,1.6728494 0 0 1 1.67285,-1.672849 h 3.34572 a 1.6728494,1.6728494 0 0 1 1.67286,1.672849 v 15.055644 l 6.06408,4.443506 a 1.6728494,1.6728494 0 0 1 0.26033,2.352444 z"
+       id="path1006"
+       style="fill:#325d88;fill-opacity:1;stroke-width:0.104553" />
+  </g>
+</svg>

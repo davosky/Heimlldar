@@ -1,0 +1,50 @@
+<div class='card border-primary shadow' id='<%= dom_id holiday %>'>
+  <div class='card-header bg-primary %> text-white'>
+    <strong>
+      <span class='float-start'>
+        <i class='fas fa-user-circle'></i>
+        &nbsp;
+        <%= holiday_full_user(holiday).upcase %>
+        &emsp; FERIE Orarie
+      </span>
+      <span class='float-end'>
+        <%= link_to holidays_url , class: 'a-light' do %>
+          <i class='fas fa-times'></i>
+        <% end %>
+      </span>
+    </strong>
+  </div>
+  <div class='card-body'>
+    <strong class='text-primary'>
+      Data Inizio:&emsp;<%= l(holiday.start_time, format: '%A %d %B %Y dalle: %H:%M') %>
+      <br/>
+      Data Fine&nbsp;&nbsp;:&emsp;<%= l(holiday.end_time, format: '%A %d %B %Y dalle: %H:%M') %>
+    </strong>
+    <hr/>
+    Zona:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= holiday.user.zone.name %>
+    <br/>
+    Reparto:&nbsp;&nbsp;&nbsp;<%= holiday.user.department.name %>
+    <hr />
+    Note:
+    <br/>
+    <%= holiday.description %>
+    <hr/>
+    <br/>
+    <div class='row'>
+    </div>
+    <span class='float-start'>
+      <% if owner?(holiday) %>
+        <%= link_to edit_holiday_path(@holiday), class: 'btn btn-outline-light btn-sm', title: 'Modifica il record corrente', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom' do %>
+          <i class='fas fa-edit text-warning'></i>
+        <% end %>
+      <% end %>
+    </span>
+    <span class='float-end'>
+      <% if owner?(holiday) %>
+        <%= button_to @holiday, method: :delete, form: {data: {turbo_confirm: 'Sicuri di voler eliminare il record corrente?'}}, class: 'btn btn-outline-light btn-sm', title: 'Elimina il record corrente', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom' do %>
+          <i class='fas fa-trash-alt text-danger'></i>
+        <% end %>
+      <% end %>
+    </span>
+  </div>
+</div>

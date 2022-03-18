@@ -1,0 +1,41 @@
+<h3 class='text-primary'>
+  <%= inline_svg_tag 'icon_calendar_week_holidays.svg', size: '96px * 48px', preserve_aspect_ratio: 'xMaxYMax meet' %>
+  &emsp;
+  Calendario FERIE Orarie - Settimanale
+</h3>
+<hr class='hr-primary' />
+<%= week_calendar(number_of_weeks: 1, events: @holidays) do |date, holidays| %>
+  <% if date.wday == 0 || date.wday == 6 %>
+  <% else %>
+    <div class='card bg-light mb-3 shadow'>
+      <div class='card-header text-center'>
+        <strong>
+          <i class='fas fa-calendar-day'></i>
+          &nbsp;
+          <%= l(date, format: '%A %d') %>
+          &emsp;
+          <span class='text-lighter'>
+            <%= l(date, format: '%B') %>
+          </span>
+        </strong>
+      </div>
+      <div class='card-body'>
+        <% holidays.each do |holiday| %>
+          <div class='card mb-1' style='border-color: <%= "#{holiday.user.color.code}" %>;'>
+            <div class='card-body'>
+              <div class='mb-1 text-primary %>'>
+                <%= link_to holiday_path(holiday), title: "#{holiday.description}", 'data-toggle' => 'tooltip', 'data-placement' => 'bottom'  do %>
+                  <strong style='color: <%= "#{holiday.user.color.code}" %>;'>
+                    <i class='far fa-user'></i>
+                    &nbsp;
+                    <%= "#{holiday.user.last_name} #{holiday.user.first_name}".truncate(19) %>
+                  </strong>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

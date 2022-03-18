@@ -1,0 +1,129 @@
+<h3 class='text-primary'>
+  <%= inline_svg_tag 'icon_list_holidays.svg', size: '96px * 48px', preserve_aspect_ratio: 'xMaxYMax meet' %>
+  &emsp;
+  Elenco FERIE Orarie
+</h3>
+<hr class='hr-primary' />
+<%= search_form_for @q, id: 'search-form', url: list_view_holidays_path do |form| %>
+  <div class='row'>
+    <% unless !admanager? %>
+      <div class='col-3'>
+        <div class='input-group mb-1'>
+          <span class='input-group-text text-primary'>
+            <i class='far fa-user text-primary'></i>
+            &emsp;
+            Operatore:&nbsp;
+          </span>
+          <%= form.collection_select(:user_id_eq, User.order('last_name ASC'), :id, :last_name, {:include_blank => true}, {:class => 'form-control'}) %>
+        </div>
+      </div>
+    <% end %>
+    <div class='col-3'>
+      <div class='input-group mb-1'>
+        <span class='input-group-text text-primary'>
+          <i class='fas fa-calendar-day'></i>
+          &emsp;
+          Data Inizio:
+        </span>
+        <%= form.date_field :start_time_gteq, class: 'form-control' %>
+      </div>
+    </div>
+    <div class='col-3'>
+      <div class='input-group mb-1'>
+        <span class='input-group-text text-primary'>
+          <i class='fas fa-calendar-day'></i>
+          &emsp;
+          Data Fine:
+        </span>
+        <%= form.date_field :end_time_lteq, class: 'form-control' %>
+      </div>
+    </div>
+    <div class='col-3'>
+      <div class='d-grid gap-2'>
+        <%= button_tag(type: 'submit', class: 'btn btn-outline-primary btn-sm') do %>
+          <i class='fas fa-search'></i>&nbsp;&nbsp;Cerca
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
+<br/>
+<table class='table table-striped'>
+  <thead class='text-primary'>
+    <tr>
+      <td class='text-primary'>
+        <strong>
+          Operatore:
+        </strong>
+      </td>
+      <td class='text-primary'>
+        <strong>
+          Giorno:
+        </strong>
+      </td>
+      <td class='text-primary'>
+        <strong>
+          Periodo:
+        </strong>
+      </td>
+      <td class='text-primary'>
+        <strong>
+          Assenza:
+        </strong>
+      </td>
+      <td class='text-primary'>
+        <strong>
+          Parziale:
+        </strong>
+      </td>
+    </tr>
+  </thead>
+  <tbody class='text-primary'>
+    <% @total = 0 %>
+    <% @holidays.each do |holiday| %>
+      <tr>
+        <td>
+          <strong style='color: <%= "#{holiday.user.color.code}" %>;'>
+            <i class='far fa-user text-primary'></i>
+            &emsp;
+            <%= "#{holiday.user.last_name} #{holiday.user.first_name}".truncate(19) %>
+          </strong>
+        </td>
+        <td>
+          <strong class='text-primary %>'>
+            <%= l(holiday.start_time, format: '%A %d %B %Y') %>
+          </strong>
+        </td>
+        <td>
+          <strong class='text-primary %>'>
+            dalle ore:&nbsp;
+            <%= l(holiday.start_time, format: '%H:%M') %>
+            &nbsp;
+            alle ore:&nbsp;
+            <%= l(holiday.end_time, format: '%H:%M') %>
+          </strong>
+        </td>
+        <td>
+          <strong class='text-primary %>'>
+            FERIE Orarie
+          </strong>
+        </td>
+        <td>
+          <strong class='text-primary %>'>
+            <%= holiday_duration(holiday).round %>
+            &emsp;Ore
+          </strong>
+        </td>
+      </tr>
+      <% @total = @total + holiday_duration(holiday).round %>
+    <% end %>
+  </tbody>
+</table>
+<br/>
+<hr class='hr-primary'/>
+<span class='float-end'>
+  <h4 class='text-primary'>
+    Totale FERIE Orarie:&emsp;
+    <%= @total %>
+  </h4>
+</span>

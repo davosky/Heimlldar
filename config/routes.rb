@@ -31,4 +31,28 @@ Rails.application.routes.draw do
       get :list_view
     end
   end
+
+  resources :holidays do
+    collection do
+      get :monthly_view
+      get :delete_error
+      get :list_view
+    end
+  end
+
+  resources :overtimes do
+    collection do
+      get :monthly_view
+      get :delete_error
+      get :list_view
+    end
+  end
+
+  resources :permits do
+    collection do
+      get :monthly_view
+      get :delete_error
+      get :list_view
+    end
+  end
 end

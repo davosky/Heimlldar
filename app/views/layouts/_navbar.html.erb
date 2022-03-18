@@ -36,6 +36,58 @@
         </li>
         <li class='nav-item dropdown'>
           <a class='nav-link dropdown' data-bs-toggle='dropdown' href='#' role='button' aria-haspopup='true' aria-expanded='false'>
+            <i class='fas fa-bath'></i>&nbsp;FERIE Orarie
+          </a>
+          <div class='dropdown-menu'>
+            <%= link_to holidays_path, class: 'dropdown-item' do %>
+              <i class='fas fa-bath'></i>&emsp;
+              <i class='fas fa-calendar-week'></i>&nbsp;&nbsp;Calendario Settimanale FERIE Orarie
+            <% end %>
+            <%= link_to monthly_view_holidays_path, class: 'dropdown-item' do %>
+              <i class='fas fa-bath'></i>&emsp;
+              <i class='far fa-calendar-alt'></i>&nbsp;&nbsp;Calendario Mensile FERIE Orarie
+            <% end %>
+            <%= link_to list_view_holidays_path, class: 'dropdown-item' do %>
+              <i class='fas fa-bath'></i>&emsp;
+              <i class='fas fa-th-list'></i>&nbsp;&nbsp;Elenco FERIE Orarie
+            <% end %>
+            <%= link_to new_holiday_path, class: 'dropdown-item' do %>
+              <i class='fas fa-bath'></i>&emsp;
+              <i class='fas fa-plus'></i>
+              &nbsp;
+              <i class='fas fa-calendar-day'></i>
+              &nbsp;&nbsp;Inserisci una Nuova Assenza per FERIE Orarie
+            <% end %>
+          </div>
+        </li>
+        <li class='nav-item dropdown'>
+          <a class='nav-link dropdown' data-bs-toggle='dropdown' href='#' role='button' aria-haspopup='true' aria-expanded='false'>
+            <i class='fas fa-battery-half'></i>&nbsp;PERMESSI
+          </a>
+          <div class='dropdown-menu'>
+            <%= link_to permits_path, class: 'dropdown-item' do %>
+              <i class='fas fa-battery-half'></i>&emsp;
+              <i class='fas fa-calendar-week'></i>&nbsp;&nbsp;Calendario Settimanale PERMESSI
+            <% end %>
+            <%= link_to monthly_view_permits_path, class: 'dropdown-item' do %>
+              <i class='fas fa-battery-half'></i>&emsp;
+              <i class='far fa-calendar-alt'></i>&nbsp;&nbsp;Calendario Mensile PERMESSI
+            <% end %>
+            <%= link_to list_view_permits_path, class: 'dropdown-item' do %>
+              <i class='fas fa-battery-half'></i>&emsp;
+              <i class='fas fa-th-list'></i>&nbsp;&nbsp;Elenco PERMESSI
+            <% end %>
+            <%= link_to new_permit_path, class: 'dropdown-item' do %>
+              <i class='fas fa-battery-half'></i>&emsp;
+              <i class='fas fa-plus'></i>
+              &nbsp;
+              <i class='fas fa-calendar-day'></i>
+              &nbsp;&nbsp;Inserisci una Nuova Assenza per PERMESSO
+            <% end %>
+          </div>
+        </li>
+        <li class='nav-item dropdown'>
+          <a class='nav-link dropdown' data-bs-toggle='dropdown' href='#' role='button' aria-haspopup='true' aria-expanded='false'>
             <i class='fas fa-thermometer-half'></i>&nbsp;MALATTIA
           </a>
           <div class='dropdown-menu'>
@@ -57,6 +109,32 @@
               &nbsp;
               <i class='fas fa-calendar-day'></i>
               &nbsp;&nbsp;Inserisci una Nuova Assenza per MALATTIA
+            <% end %>
+          </div>
+        </li>
+        <li class='nav-item dropdown'>
+          <a class='nav-link dropdown' data-bs-toggle='dropdown' href='#' role='button' aria-haspopup='true' aria-expanded='false'>
+            <i class='fas fa-clock'></i>&nbsp;STRAORDINARIO
+          </a>
+          <div class='dropdown-menu'>
+            <%= link_to overtimes_path, class: 'dropdown-item' do %>
+              <i class='fas fa-clock'></i>&emsp;
+              <i class='fas fa-calendar-week'></i>&nbsp;&nbsp;Calendario Settimanale STRAORDINARIO
+            <% end %>
+            <%= link_to monthly_view_overtimes_path, class: 'dropdown-item' do %>
+              <i class='fas fa-clock'></i>&emsp;
+              <i class='far fa-calendar-alt'></i>&nbsp;&nbsp;Calendario Mensile STRAORDINARIO
+            <% end %>
+            <%= link_to list_view_overtimes_path, class: 'dropdown-item' do %>
+              <i class='fas fa-clock'></i>&emsp;
+              <i class='fas fa-th-list'></i>&nbsp;&nbsp;Elenco STRAORDINARIO
+            <% end %>
+            <%= link_to new_overtime_path, class: 'dropdown-item' do %>
+              <i class='fas fa-clock'></i>&emsp;
+              <i class='fas fa-plus'></i>
+              &nbsp;
+              <i class='fas fa-calendar-day'></i>
+              &nbsp;&nbsp;Inserisci Ore Lavoro STRAORDINARIE
             <% end %>
           </div>
         </li>

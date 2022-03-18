@@ -1,0 +1,22 @@
+<div class='col-8 offset-2'>
+  <div class='card border-success shadow'>
+    <div class='card-header bg-success text-white'>
+      <strong>
+        <span class='float-start'>
+          <i class='fas fa-plus'></i>
+          &emsp;
+          Inserisci FERIE Orarie
+          &emsp;&emsp;
+        </span>
+        <span class='float-end'>
+          <%= link_to holidays_path, class: 'a-light' do %>
+            <i class='fas fa-times'></i>
+          <% end %>
+        </span>
+      </strong>
+    </div>
+    <div class='card-body'>
+      <%= render "form", holiday: @holiday %>
+    </div>
+  </div>
+</div>

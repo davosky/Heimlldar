@@ -1,0 +1,74 @@
+<%= form_with(model: holiday) do |form| %>
+  <% if holiday.errors.any? %>
+    <div style="color: red">
+      <%= pluralize(holiday.errors.count, "errori") %>
+      <br />
+      Attenzione - non posso salvare per i seguenti errori:
+      <br />
+      <ul>
+        <% holiday.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <% if current_user.admin == true || current_user.manager == true %>
+    <div class='form-row align-items-center mb-1'>
+      <div class='col'>
+        <div class='input-group'>
+          <span class='input-group-text input-group-text-fixed'>
+            <i class='fas fa-user-alt'></i>
+            &nbsp;Utente:
+          </span>
+          <%= form.collection_select(:user_id, User.order('last_name ASC'), :id, :last_name, {:include_blank => false}, {:class => 'form-control'}) %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <div class='form-row align-items-center mb-1'>
+    <div class='col'>
+      <div class='input-group'>
+        <span class='input-group-text input-group-text-fixed'>
+          <i class='fa fa-calendar-day'></i>
+          &nbsp;Data inizio:
+        </span>
+        <%= form.datetime_field :start_time, class: 'form-control' %>
+      </div>
+    </div>
+  </div>
+  <div class='form-row align-items-center mb-1'>
+    <div class='col'>
+      <div class='input-group'>
+        <span class='input-group-text input-group-text-fixed'>
+          <i class='fas fa-calendar-day'></i>
+          &nbsp;Data fine:
+        </span>
+        <%= form.datetime_field :end_time, class: 'form-control' %>
+      </div>
+    </div>
+  </div>
+  <div class='form-row align-items-center mb-1'>
+    <div class='col'>
+      <div class='input-group'>
+        <span class='input-group-text input-group-text-fixed'>
+          <i class='far fa-clipboard'></i>
+          &nbsp;Note:
+        </span>
+        <%= form.text_area :description, class: 'form-control' %>
+      </div>
+    </div>
+  </div>
+  <div class='form-row align-items-center mt-3'>
+    <div class='d-grid gap-2'>
+      <% if current_page?(controller: 'holidays', action: 'new') %>
+        <%= button_tag(type: 'submit', class: 'btn btn-outline-success btn-sm') do %>
+          <i class='fas fa-save'></i>&nbsp;&nbsp;SALVA
+        <% end %>
+      <% else %>
+        <%= button_tag(type: 'submit', class: 'btn btn-outline-warning btn-sm') do %>
+          <i class='fas fa-save'></i>&nbsp;&nbsp;MODIFICA
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
