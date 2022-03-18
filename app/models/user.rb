@@ -8,6 +8,9 @@ class User < ApplicationRecord
   belongs_to :color
   has_many :absences
   has_many :diseases
+  has_many :holidays
+  has_many :overtimes
+  has_many :permits
 
   validates :first_name, presence: true
   validates :last_name, presence: true

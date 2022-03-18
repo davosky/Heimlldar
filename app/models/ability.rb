@@ -42,12 +42,12 @@ class Ability
         holiday.user == user
       end
 
-      can :manage, Overtime do |ovrtime|
+      can :manage, Overtime do |overtime|
         overtime.user == user
       end
 
       can :manage, Permit do |permit|
-        Permit.user == user
+        permit.user == user
       end
 
       can :manage, Howto if user.manager == true
