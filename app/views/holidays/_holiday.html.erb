@@ -16,9 +16,11 @@
   </div>
   <div class='card-body'>
     <strong class='text-primary'>
-      Data Inizio:&emsp;<%= l(holiday.start_time, format: '%A %d %B %Y dalle: %H:%M') %>
+      Data:&emsp;<%= l(holiday.start_time, format: '%A %d %B %Y') %>
       <br/>
-      Data Fine&nbsp;&nbsp;:&emsp;<%= l(holiday.end_time, format: '%A %d %B %Y dalle: %H:%M') %>
+      Dalle Ore:&emsp;<%= l(holiday.start_time, format: '%H:%M') %>
+      &emsp;
+      Alle Ore:&emsp;<%= l(holiday.end_time, format: '%H:%M') %>
     </strong>
     <hr/>
     Zona:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= holiday.user.zone.name %>

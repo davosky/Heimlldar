@@ -16,9 +16,11 @@
   </div>
   <div class='card-body'>
     <strong class='text-primary'>
-      Data Inizio:&emsp;<%= l(overtime.start_time, format: '%A %d %B %Y dalle: %H:%M') %>
-      <br/>
-      Data Fine&nbsp;&nbsp;:&emsp;<%= l(overtime.end_time, format: '%A %d %B %Y dalle: %H:%M') %>
+      Data:&emsp;<%= l(overtime.start_time, format: '%A %d %B %Y') %>
+      &emsp;
+      Dalle Ore:&emsp;<%= l(overtime.start_time, format: '%H:%M') %>
+      &emsp;
+      Alle Ore:&emsp;<%= l(overtime.end_time, format: '%H:%M') %>
     </strong>
     <hr/>
     Zona:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= overtime.user.zone.name %>

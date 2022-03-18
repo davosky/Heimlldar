@@ -16,9 +16,9 @@
   </div>
   <div class='card-body'>
     <strong class='text-primary'>
-      Data Inizio:&emsp;<%= l(disease.start_time, format: '%A %d %B %Y dalle: %H:%M') %>
+      Data Inizio:&emsp;<%= l(disease.start_time, format: '%A %d %B %Y') %>
       <br/>
-      Data Fine&nbsp;&nbsp;:&emsp;<%= l(disease.end_time, format: '%A %d %B %Y dalle: %H:%M') %>
+      Data Fine&nbsp;&nbsp;:&emsp;<%= l(disease.end_time, format: '%A %d %B %Y') %>
     </strong>
     <hr/>
     Zona:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= disease.user.zone.name %>

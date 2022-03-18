@@ -86,4 +86,12 @@ module ApplicationHelper
     def owner?(permit)
         current_user.admin == true || current_user.manager == true || current_user.id == permit.user_id
     end
+
+    def permit_period(permit)
+        unless permit.morning == true
+            'POMERIGGIO'
+        else
+            'MATTINA'
+        end
+    end
 end

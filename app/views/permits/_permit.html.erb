@@ -16,9 +16,9 @@
   </div>
   <div class='card-body'>
     <strong class='text-primary'>
-      Data Inizio:&emsp;<%= l(permit.start_time, format: '%A %d %B %Y dalle: %H:%M') %>
-      <br/>
-      Data Fine&nbsp;&nbsp;:&emsp;<%= l(permit.end_time, format: '%A %d %B %Y dalle: %H:%M') %>
+      Data:&emsp;<%= l(permit.start_time, format: '%A %d %B %Y') %>
+      &emsp;
+      <%= permit_period(permit) %>
     </strong>
     <hr/>
     Zona:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= permit.user.zone.name %>
