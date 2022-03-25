@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: 'dashboard#index'
 
   get 'dashboard/index'
+  get 'dashboard/search'
   get 'dashboard/credits'
   get 'dashboard/authorization'
 

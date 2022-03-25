@@ -229,6 +229,7 @@ GEM
     ruby-vips (2.1.4)
       ffi (~> 1.12)
     rubyzip (2.3.2)
+    rufo (0.13.0)
     sassc (2.4.0)
       ffi (~> 1.9)
     sassc-rails (2.1.2)
@@ -305,6 +306,7 @@ DEPENDENCIES
   rails_admin-i18n (~> 1.18)
   ransack (~> 2.6)
   redis (~> 4.0)
+  rufo
   sassc-rails
   selenium-webdriver
   simple_calendar (~> 2.4, >= 2.4.3)
