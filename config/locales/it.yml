@@ -142,53 +142,53 @@ it:
           has_many: Il record non può essere cancellato perchè esistono %{record} dipendenti
   date:
     abbr_day_names:
-      - dom
-      - lun
-      - mar
-      - mer
-      - gio
-      - ven
-      - sab
+      - Dom
+      - Lun
+      - Mar
+      - Mer
+      - Gio
+      - Ven
+      - Sab
     abbr_month_names:
       -
-      - gen
-      - feb
-      - mar
-      - apr
-      - mag
-      - giu
-      - lug
-      - ago
-      - set
-      - ott
-      - nov
-      - dic
+      - Gen
+      - Feb
+      - Mar
+      - Apr
+      - Mag
+      - Giu
+      - Lug
+      - Ago
+      - Set
+      - Ott
+      - Nov
+      - Dic
     day_names:
-      - domenica
-      - lunedì
-      - martedì
-      - mercoledì
-      - giovedì
-      - venerdì
-      - sabato
+      - Domenica
+      - Lunedì
+      - Martedì
+      - Mercoledì
+      - Giovedì
+      - Venerdì
+      - Sabato
     formats:
       default: "%d/%m/%Y"
       long: "%d %B %Y"
       short: "%d %b"
     month_names:
       -
-      - gennaio
-      - febbraio
-      - marzo
-      - aprile
-      - maggio
-      - giugno
-      - luglio
-      - agosto
-      - settembre
-      - ottobre
-      - novembre
-      - dicembre
+      - Gennaio
+      - Febbraio
+      - Marzo
+      - Aprile
+      - Maggio
+      - Giugno
+      - Luglio
+      - Agosto
+      - Settembre
+      - Ottobre
+      - Novembre
+      - Dicembre
     order:
       - :day
       - :month

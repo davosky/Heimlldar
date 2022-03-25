@@ -1,0 +1,131 @@
+<div class='row'>
+  <div class='col text-primary'>
+    <h4>
+      <%= l(Date.today, format: '%A %d %B %Y') %>
+    </h4>
+    <hr>
+  </div>
+</div>
+<div class='row p-3'>
+  <div class='col-12'>
+    <div class='card shadow'>
+      <div class='card-body'>
+        <div class='row'>
+          <div class='col-4 text-absence'>
+            <span class='badge background-absence'>
+              <i class='fas fa-plane'></i>&emsp;Chi è in <strong>FERIE</strong>  Oggi?
+            </span>
+            <hr/>
+            <% @absences.each do |absence| %>
+              <% if absence_range(absence) %>
+                <i class='fas fa-user-circle'></i>
+                <strong>
+                  &nbsp;
+                  <%= absence.user.last_name %>
+                  &nbsp;
+                  <%= absence.user.first_name %>
+                </strong>
+                &emsp;
+                <small>
+                  <%= l(absence.start_time, format: '%a %d/%m') %>
+                  &nbsp;
+                  <i class='fas fa-arrows-alt-h'></i>
+                  &nbsp;
+                  <%= l(absence.end_time, format: '%a %d/%m') %>
+                </small>
+                <hr/>
+              <% end %>
+            <% end %>
+          </div>
+          <div class='col-4 text-holiday'>
+            <span class='badge background-holiday'>
+              <i class='fas fa-bath'></i>&emsp;Chi ha preso <strong>ORE FERIE</strong> Oggi?
+            </span>
+            <hr/>
+            <% @holidays.each do |holiday| %>
+              <i class='fas fa-user-circle'></i>
+              <strong>
+                &nbsp;
+                <%= holiday.user.last_name %>
+                &nbsp;
+                <%= holiday.user.first_name %>
+                &emsp;
+              </strong>
+              <small>
+                <%= l(holiday.start_time, format: '%H:%M') %>
+                &nbsp;
+                <i class='fas fa-arrows-alt-h'></i>
+                &nbsp;
+                <%= l(holiday.end_time, format: '%H:%M') %>
+              </small>
+              <hr/>
+            <% end %>
+          </div>
+          <div class='col-4 text-permit'>
+            <span class='badge background-permit'>
+              <i class='fas fa-battery-half'></i>&emsp;Chi è in <strong>PERMESSO</strong> Oggi?
+            </span>
+            <hr/>
+            <% @permits.each do |permit| %>
+              <i class='fas fa-user-circle'></i>
+              <strong>
+                &nbsp;
+                <%= permit.user.last_name %>
+                &nbsp;
+                <%= permit.user.first_name %>
+                &emsp;
+              </strong>
+              <small>
+                <%= permit_period(permit) %>
+              </small>
+              <hr/>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class='row p-3'>
+  <div class='col-12'>
+    <div class='card shadow'>
+      <div class='card-body text-primary'>
+        <div class='row'>
+          <div class='col text-disease'>
+            <span class='badge background-disease'>
+              <i class='fas fa-thermometer-half'></i>&emsp;Chi è in <strong>MALATTIA</strong> Oggi?
+            </span>
+            <hr/>
+            <% @diseases.each do |disease| %>
+              <% if disease_range(disease) %>
+                <i class='fas fa-user-circle'></i>
+                <strong>
+                  &nbsp;
+                  <%= disease.user.last_name %>
+                  &nbsp;
+                  <%= disease.user.first_name %>
+                  &emsp;
+                </strong>
+                |
+                &emsp;
+                Malattia:&emsp;
+                <strong>
+                  <%= disease.description %>
+                </strong>
+                &emsp;
+                |
+                &emsp;
+                <%= l(disease.start_time, format: '%A %d %B %Y') %>
+                &emsp;
+                <i class='fas fa-arrows-alt-h'></i>
+                &emsp;
+                <%= l(disease.end_time, format: '%A %d %B %Y') %>
+                <hr/>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

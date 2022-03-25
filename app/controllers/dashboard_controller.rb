@@ -3,10 +3,9 @@ class DashboardController < ApplicationController
     unless current_user.admin == true || current_user.manager == true
       @q = Absence.ransack(params[:q])
       @absences = @q.result(distinct: true).where(user_id: current_user)
-        .where(start_time: Date.today)
     else
       @q = Absence.ransack(params[:q])
-      @absences = @q.result(distinct: true).where(start_time: Date.today)
+      @absences = @q.result(distinct: true)
     end
 
     unless current_user.admin == true || current_user.manager == true
@@ -36,10 +35,9 @@ class DashboardController < ApplicationController
     unless current_user.admin == true || current_user.manager == true
       @q = Disease.ransack(params[:q])
       @diseases = @q.result(distinct: true).where(user_id: current_user)
-        .where(start_time: Date.today)
     else
       @q = Disease.ransack(params[:q])
-      @diseases = @q.result(distinct: true).where(start_time: Date.today)
+      @diseases = @q.result(distinct: true)
     end
   end
 

@@ -384,3 +384,31 @@ body {
 .text-disease {
   color: $dash-disease;
 }
+
+.background-absence {
+  background-color: $dash-absence;
+  color: $white;
+  font-weight: 500;
+  font-size: large;
+}
+
+.background-holiday {
+  background-color: $dash-holiday;
+  color: $white;
+  font-weight: 500;
+  font-size: large;
+}
+
+.background-permit {
+  background-color: $dash-permit;
+  color: $white;
+  font-weight: 500;
+  font-size: large;
+}
+
+.background-disease {
+  background-color: $dash-disease;
+  color: $white;
+  font-weight: 500;
+  font-size: large;
+}
