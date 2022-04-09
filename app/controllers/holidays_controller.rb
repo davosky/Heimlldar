@@ -81,19 +81,20 @@ class HolidaysController < ApplicationController
   end
 
   def destroy
-      @holiday.destroy
-      respond_to do |format|
-        format.html { redirect_to holidays_url, notice: "Assenza eliminata con successo." }
-        format.json { head :no_content }
-      end
+    @holiday.destroy
+    respond_to do |format|
+      format.html { redirect_to holidays_url, notice: "Assenza eliminata con successo." }
+      format.json { head :no_content }
+    end
   end
 
   private
-    def set_holiday
-      @holiday = Holiday.find(params[:id])
-    end
 
-    def holiday_params
-      params.require(:holiday).permit(:name, :start_time, :end_time, :user_id, :description, :creator, :updater, :cancelled)
-    end
+  def set_holiday
+    @holiday = Holiday.find(params[:id])
+  end
+
+  def holiday_params
+    params.require(:holiday).permit(:name, :start_time, :end_time, :user_id, :description, :creator, :updater, :cancelled)
+  end
 end

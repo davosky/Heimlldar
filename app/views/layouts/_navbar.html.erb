@@ -36,49 +36,23 @@
         </li>
         <li class='nav-item dropdown'>
           <a class='nav-link dropdown' data-bs-toggle='dropdown' href='#' role='button' aria-haspopup='true' aria-expanded='false'>
-            <i class='fas fa-bath'></i>&nbsp;FERIE Orarie
+            <i class='fas fa-bath'></i>&nbsp;PERMESSI
           </a>
           <div class='dropdown-menu'>
             <%= link_to holidays_path, class: 'dropdown-item' do %>
               <i class='fas fa-bath'></i>&emsp;
-              <i class='fas fa-calendar-week'></i>&nbsp;&nbsp;Calendario Settimanale FERIE Orarie
+              <i class='fas fa-calendar-week'></i>&nbsp;&nbsp;Calendario Settimanale PERMESSI
             <% end %>
             <%= link_to monthly_view_holidays_path, class: 'dropdown-item' do %>
               <i class='fas fa-bath'></i>&emsp;
-              <i class='far fa-calendar-alt'></i>&nbsp;&nbsp;Calendario Mensile FERIE Orarie
+              <i class='far fa-calendar-alt'></i>&nbsp;&nbsp;Calendario Mensile PERMESSI
             <% end %>
             <%= link_to list_view_holidays_path, class: 'dropdown-item' do %>
               <i class='fas fa-bath'></i>&emsp;
-              <i class='fas fa-th-list'></i>&nbsp;&nbsp;Elenco FERIE Orarie
+              <i class='fas fa-th-list'></i>&nbsp;&nbsp;Elenco PERMESSI
             <% end %>
             <%= link_to new_holiday_path, class: 'dropdown-item' do %>
               <i class='fas fa-bath'></i>&emsp;
-              <i class='fas fa-plus'></i>
-              &nbsp;
-              <i class='fas fa-calendar-day'></i>
-              &nbsp;&nbsp;Inserisci una Nuova Assenza per FERIE Orarie
-            <% end %>
-          </div>
-        </li>
-        <li class='nav-item dropdown'>
-          <a class='nav-link dropdown' data-bs-toggle='dropdown' href='#' role='button' aria-haspopup='true' aria-expanded='false'>
-            <i class='fas fa-battery-half'></i>&nbsp;PERMESSI
-          </a>
-          <div class='dropdown-menu'>
-            <%= link_to permits_path, class: 'dropdown-item' do %>
-              <i class='fas fa-battery-half'></i>&emsp;
-              <i class='fas fa-calendar-week'></i>&nbsp;&nbsp;Calendario Settimanale PERMESSI
-            <% end %>
-            <%= link_to monthly_view_permits_path, class: 'dropdown-item' do %>
-              <i class='fas fa-battery-half'></i>&emsp;
-              <i class='far fa-calendar-alt'></i>&nbsp;&nbsp;Calendario Mensile PERMESSI
-            <% end %>
-            <%= link_to list_view_permits_path, class: 'dropdown-item' do %>
-              <i class='fas fa-battery-half'></i>&emsp;
-              <i class='fas fa-th-list'></i>&nbsp;&nbsp;Elenco PERMESSI
-            <% end %>
-            <%= link_to new_permit_path, class: 'dropdown-item' do %>
-              <i class='fas fa-battery-half'></i>&emsp;
               <i class='fas fa-plus'></i>
               &nbsp;
               <i class='fas fa-calendar-day'></i>
@@ -154,9 +128,6 @@
               <%= link_to rails_admin_path, class: 'dropdown-item'  do %>
                 <i class='fas fa-user-cog'></i>&nbsp;&nbsp;Amministrazione
               <% end %>
-            <% end %>
-            <%= link_to howtos_path, class: 'dropdown-item'  do %>
-              <i class='fas fa-book'></i>&nbsp;&nbsp;Manuali
             <% end %>
             <%= link_to dashboard_credits_path, class: 'dropdown-item'  do %>
               <i class='fas fa-user-edit'></i>&nbsp;&nbsp;Crediti

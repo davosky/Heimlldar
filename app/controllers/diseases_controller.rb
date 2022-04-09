@@ -81,19 +81,20 @@ class DiseasesController < ApplicationController
   end
 
   def destroy
-      @disease.destroy
-      respond_to do |format|
-        format.html { redirect_to diseases_url, notice: "Assenza eliminata con successo." }
-        format.json { head :no_content }
-      end
+    @disease.destroy
+    respond_to do |format|
+      format.html { redirect_to diseases_url, notice: "Assenza eliminata con successo." }
+      format.json { head :no_content }
+    end
   end
 
   private
-    def set_disease
-      @disease = Disease.find(params[:id])
-    end
 
-    def disease_params
-      params.require(:disease).permit(:name, :start_time, :end_time, :user_id, :description, :creator, :updater, :cancelled)
-    end
+  def set_disease
+    @disease = Disease.find(params[:id])
+  end
+
+  def disease_params
+    params.require(:disease).permit(:name, :start_time, :end_time, :user_id, :description, :creator, :updater, :cancelled, :certificate_number)
+  end
 end
