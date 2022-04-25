@@ -26,10 +26,10 @@ class DiseasesController < ApplicationController
   def list_view
     unless current_user.admin == true || current_user.manager == true
       @q = Disease.ransack(params[:q])
-      @diseases = @q.result(distinct: true).where(user_id: current_user)
+      @diseases = @q.result(distinct: true).where(user_id: current_user).order("start_time DESC")
     else
       @q = Disease.ransack(params[:q])
-      @diseases = @q.result(distinct: true)
+      @diseases = @q.result(distinct: true).order("start_time DESC")
     end
   end
 

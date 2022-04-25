@@ -1,4 +1,6 @@
 module ApplicationHelper
+  # USER ========================================================
+
   def admin?
     current_user.admin == true
   end
@@ -11,6 +13,9 @@ module ApplicationHelper
     "#{current_user.first_name} #{current_user.last_name}"
   end
 
+  # =============================================================
+
+  # ABSENCE =====================================================
   def absence_full_user(absence)
     "#{absence.user.first_name} #{absence.user.last_name}"
   end
@@ -34,8 +39,12 @@ module ApplicationHelper
   end
 
   def absence_range(absence)
-    Date.today > absence.start_time && Date.today < absence.end_time
+    Date.today >= absence.start_time && Date.today <= absence.end_time
   end
+
+  # =============================================================
+
+  # DISDEASE ====================================================
 
   def disease_full_user(disease)
     "#{disease.user.first_name} #{disease.user.last_name}"
@@ -60,8 +69,12 @@ module ApplicationHelper
   end
 
   def disease_range(disease)
-    Date.today > disease.start_time && Date.today < disease.end_time
+    Date.today >= disease.start_time && Date.today <= disease.end_time
   end
+
+  # =============================================================
+
+  # HOLIDAY =====================================================
 
   def holiday_full_user(holiday)
     "#{holiday.user.first_name} #{holiday.user.last_name}"
@@ -75,6 +88,10 @@ module ApplicationHelper
     @timeamount = TimeDifference.between(holiday.start_time, holiday.end_time).in_hours
   end
 
+  # =============================================================
+
+  # OVERTIME ====================================================
+
   def overtime_full_user(overtime)
     "#{overtime.user.first_name} #{overtime.user.last_name}"
   end
@@ -87,6 +104,10 @@ module ApplicationHelper
     @timeamount = TimeDifference.between(overtime.start_time, overtime.end_time).in_hours
   end
 
+  # =============================================================
+
+  # PERMIT ======================================================
+
   def permit_full_user(permit)
     "#{permit.user.first_name} #{permit.user.last_name}"
   end
@@ -95,11 +116,9 @@ module ApplicationHelper
     current_user.admin == true || current_user.manager == true || current_user.id == permit.user_id
   end
 
-  def permit_period(permit)
-    unless permit.morning == true
-      "POMERIGGIO"
-    else
-      "MATTINA"
-    end
+  def permit_duration(permit)
+    @timeamount = TimeDifference.between(permit.start_time, permit.end_time).in_hours
   end
+
+  # =============================================================
 end

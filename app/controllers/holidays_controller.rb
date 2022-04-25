@@ -26,10 +26,10 @@ class HolidaysController < ApplicationController
   def list_view
     unless current_user.admin == true || current_user.manager == true
       @q = Holiday.ransack(params[:q])
-      @holidays = @q.result(distinct: true).where(user_id: current_user)
+      @holidays = @q.result(distinct: true).where(user_id: current_user).order("start_time DESC")
     else
       @q = Holiday.ransack(params[:q])
-      @holidays = @q.result(distinct: true)
+      @holidays = @q.result(distinct: true).order("start_time DESC")
     end
   end
 

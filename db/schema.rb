@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_09_172212) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_25_103855) do
   create_table "absences", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
     t.integer "name"
     t.date "start_time"
@@ -131,15 +131,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_09_172212) do
 
   create_table "permits", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
     t.integer "name"
-    t.date "start_time"
-    t.date "end_time"
+    t.datetime "start_time", precision: nil
+    t.datetime "end_time", precision: nil
     t.bigint "user_id"
     t.text "description"
     t.string "creator"
     t.string "updater"
     t.boolean "cancelled"
-    t.boolean "morning", default: false
-    t.boolean "afternoon", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_permits_on_user_id"

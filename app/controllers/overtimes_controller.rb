@@ -26,10 +26,10 @@ class OvertimesController < ApplicationController
   def list_view
     unless current_user.admin == true || current_user.manager == true
       @q = Overtime.ransack(params[:q])
-      @overtimes = @q.result(distinct: true).where(user_id: current_user)
+      @overtimes = @q.result(distinct: true).where(user_id: current_user).order("start_time DESC")
     else
       @q = Overtime.ransack(params[:q])
-      @overtimes = @q.result(distinct: true)
+      @overtimes = @q.result(distinct: true).order("start_time DESC")
     end
   end
 
@@ -81,19 +81,20 @@ class OvertimesController < ApplicationController
   end
 
   def destroy
-      @overtime.destroy
-      respond_to do |format|
-        format.html { redirect_to overtimes_url, notice: "Assenza eliminata con successo." }
-        format.json { head :no_content }
-      end
+    @overtime.destroy
+    respond_to do |format|
+      format.html { redirect_to overtimes_url, notice: "Assenza eliminata con successo." }
+      format.json { head :no_content }
+    end
   end
 
   private
-    def set_overtime
-      @overtime = Overtime.find(params[:id])
-    end
 
-    def overtime_params
-      params.require(:overtime).permit(:name, :start_time, :end_time, :user_id, :description, :creator, :updater, :cancelled)
-    end
+  def set_overtime
+    @overtime = Overtime.find(params[:id])
+  end
+
+  def overtime_params
+    params.require(:overtime).permit(:name, :start_time, :end_time, :user_id, :description, :creator, :updater, :cancelled)
+  end
 end

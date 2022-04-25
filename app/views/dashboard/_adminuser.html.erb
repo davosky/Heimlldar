@@ -63,7 +63,7 @@
           </div>
           <div class='col-4 text-permit'>
             <span class='badge background-permit'>
-              <i class='fas fa-battery-half'></i>&emsp;Chi è in <strong>PERMESSO</strong> Oggi?
+              <i class='fas fa-bath'></i>&emsp;Chi ha preso <strong>ORE PERMESSO</strong> Oggi?
             </span>
             <hr/>
             <% @permits.each do |permit| %>
@@ -76,7 +76,11 @@
                 &emsp;
               </strong>
               <small>
-                <%= permit_period(permit) %>
+                <%= l(permit.start_time, format: '%H:%M') %>
+                &nbsp;
+                <i class='fas fa-arrows-alt-h'></i>
+                &nbsp;
+                <%= l(permit.end_time, format: '%H:%M') %>
               </small>
               <hr/>
             <% end %>

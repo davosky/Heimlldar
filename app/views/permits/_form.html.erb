@@ -30,22 +30,21 @@
       <div class='input-group'>
         <span class='input-group-text input-group-text-fixed'>
           <i class='fa fa-calendar-day'></i>
-          &nbsp;Data:
+          &nbsp;Data Inizio:
         </span>
-        <%= form.date_field :start_time, class: 'form-control' %>
+        <%= form.datetime_field :start_time, class: 'form-control' %>
       </div>
     </div>
-  </div>
-  <div class='form-group mb-2 mt-2'>
-    <div class='form-check'>
-      <%= form.check_box :morning, class: 'form-check-input', id: 'morning', name:'progress', onClick: 'ckChange(this)' %>
-      <label for='morning' class='form-check-label'>Mattina</label>
-    </div>
-  </div>
-  <div class='form-group mb-2 mt-2'>
-    <div class='form-check'>
-      <%= form.check_box :afternoon, class: 'form-check-input', id: 'afternoon', name:'progress', onClick: 'ckChange(this)' %>
-      <label for='afternoon' class='form-check-label'>Pomeriggio</label>
+    <div class='form-row align-items-center mb-1'>
+      <div class='col'>
+        <div class='input-group'>
+          <span class='input-group-text input-group-text-fixed'>
+            <i class='fa fa-calendar-day'></i>
+            &nbsp;Data Fine:
+          </span>
+          <%= form.datetime_field :end_time, class: 'form-control' %>
+        </div>
+      </div>
     </div>
   </div>
   <div class='form-row align-items-center mb-1'>

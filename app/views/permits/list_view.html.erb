@@ -63,7 +63,17 @@
       </td>
       <td class='text-primary'>
         <strong>
+          Periodo:
+        </strong>
+      </td>
+      <td class='text-primary'>
+        <strong>
           Assenza:
+        </strong>
+      </td>
+      <td class='text-primary'>
+        <strong>
+          Parziale:
         </strong>
       </td>
     </tr>
@@ -82,8 +92,15 @@
         <td>
           <strong class='text-primary %>'>
             <%= l(permit.start_time, format: '%A %d %B %Y') %>
-            &emsp;
-            <%= permit_period(permit) %>
+          </strong>
+        </td>
+        <td>
+          <strong class='text-primary %>'>
+            dalle ore:&nbsp;
+            <%= l(permit.start_time, format: '%H:%M') %>
+            &nbsp;
+            alle ore:&nbsp;
+            <%= l(permit.end_time, format: '%H:%M') %>
           </strong>
         </td>
         <td>
@@ -91,7 +108,14 @@
             PERMESSO
           </strong>
         </td>
+        <td>
+          <strong class='text-primary %>'>
+            <%= permit_duration(permit).round %>
+            &emsp;Ore
+          </strong>
+        </td>
       </tr>
+      <% @total = @total + permit_duration(permit).round %>
     <% end %>
   </tbody>
 </table>
@@ -99,8 +123,7 @@
 <hr class='hr-primary'/>
 <span class='float-end'>
   <h4 class='text-primary'>
-    Totale PERMESSI:&emsp;
-    <% @total = @permits.count %>
+    Totale ORE PERMESSO:&emsp;
     <%= @total %>
   </h4>
 </span>

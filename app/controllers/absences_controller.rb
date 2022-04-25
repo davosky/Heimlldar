@@ -26,10 +26,10 @@ class AbsencesController < ApplicationController
   def list_view
     unless current_user.admin == true || current_user.manager == true
       @q = Absence.ransack(params[:q])
-      @absences = @q.result(distinct: true).where(user_id: current_user)
+      @absences = @q.result(distinct: true).where(user_id: current_user).order("start_time DESC")
     else
       @q = Absence.ransack(params[:q])
-      @absences = @q.result(distinct: true)
+      @absences = @q.result(distinct: true).order("start_time DESC")
     end
   end
 
@@ -81,19 +81,20 @@ class AbsencesController < ApplicationController
   end
 
   def destroy
-      @absence.destroy
-      respond_to do |format|
-        format.html { redirect_to absences_url, notice: "Assenza eliminata con successo." }
-        format.json { head :no_content }
-      end
+    @absence.destroy
+    respond_to do |format|
+      format.html { redirect_to absences_url, notice: "Assenza eliminata con successo." }
+      format.json { head :no_content }
+    end
   end
 
   private
-    def set_absence
-      @absence = Absence.find(params[:id])
-    end
 
-    def absence_params
-      params.require(:absence).permit(:name, :start_time, :end_time, :user_id, :description, :creator, :updater, :cancelled)
-    end
+  def set_absence
+    @absence = Absence.find(params[:id])
+  end
+
+  def absence_params
+    params.require(:absence).permit(:name, :start_time, :end_time, :user_id, :description, :creator, :updater, :cancelled)
+  end
 end

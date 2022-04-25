@@ -26,10 +26,10 @@ class PermitsController < ApplicationController
   def list_view
     unless current_user.admin == true || current_user.manager == true
       @q = Permit.ransack(params[:q])
-      @permits = @q.result(distinct: true).where(user_id: current_user)
+      @permits = @q.result(distinct: true).where(user_id: current_user).order("start_time DESC")
     else
       @q = Permit.ransack(params[:q])
-      @permits = @q.result(distinct: true)
+      @permits = @q.result(distinct: true).order("start_time DESC")
     end
   end
 
@@ -70,7 +70,7 @@ class PermitsController < ApplicationController
 
   def update
     @permit.end_time = @permit.start_time
-    
+
     @permit.updater = "#{current_user.last_name} #{current_user.first_name}"
 
     respond_to do |format|
@@ -85,19 +85,20 @@ class PermitsController < ApplicationController
   end
 
   def destroy
-      @permit.destroy
-      respond_to do |format|
-        format.html { redirect_to permits_url, notice: "Assenza eliminata con successo." }
-        format.json { head :no_content }
-      end
+    @permit.destroy
+    respond_to do |format|
+      format.html { redirect_to permits_url, notice: "Assenza eliminata con successo." }
+      format.json { head :no_content }
+    end
   end
 
   private
-    def set_permit
-      @permit = Permit.find(params[:id])
-    end
 
-    def permit_params
-      params.require(:permit).permit(:name, :start_time, :end_time, :user_id, :description, :creator, :updater, :morning, :afternoon, :cancelled)
-    end
+  def set_permit
+    @permit = Permit.find(params[:id])
+  end
+
+  def permit_params
+    params.require(:permit).permit(:name, :start_time, :end_time, :user_id, :description, :creator, :updater, :morning, :afternoon, :cancelled)
+  end
 end
