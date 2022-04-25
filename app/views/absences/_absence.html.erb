@@ -2,6 +2,8 @@
   <div class='card-header bg-primary %> text-white'>
     <strong>
       <span class='float-start'>
+        <%= inline_svg_tag 'icon_absences.svg', size: '96px * 48px', preserve_aspect_ratio: 'xMaxYMax meet' %>
+        &emsp;
         <i class='fas fa-user-circle'></i>
         &nbsp;
         <%= absence_full_user(absence).upcase %>

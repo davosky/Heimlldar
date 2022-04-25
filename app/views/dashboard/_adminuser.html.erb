@@ -13,7 +13,9 @@
         <div class='row'>
           <div class='col-4 text-absence'>
             <span class='badge background-absence'>
-              <i class='fas fa-plane'></i>&emsp;Chi è in <strong>FERIE</strong>  Oggi?
+              <%= inline_svg_tag 'icon_absences.svg', size: '96px * 48px', preserve_aspect_ratio: 'xMaxYMax meet' %>
+              &nbsp;
+              Chi è in <strong>FERIE</strong>  Oggi?
             </span>
             <hr/>
             <% @absences.each do |absence| %>
@@ -39,7 +41,9 @@
           </div>
           <div class='col-4 text-holiday'>
             <span class='badge background-holiday'>
-              <i class='fas fa-bath'></i>&emsp;Chi ha preso <strong>ORE FERIE</strong> Oggi?
+              <%= inline_svg_tag 'icon_holidays.svg', size: '96px * 48px', preserve_aspect_ratio: 'xMaxYMax meet' %>
+              &nbsp;
+              Chi ha preso <strong>ORE FERIE</strong> Oggi?
             </span>
             <hr/>
             <% @holidays.each do |holiday| %>
@@ -63,7 +67,9 @@
           </div>
           <div class='col-4 text-permit'>
             <span class='badge background-permit'>
-              <i class='fas fa-bath'></i>&emsp;Chi ha preso <strong>ORE PERMESSO</strong> Oggi?
+              <%= inline_svg_tag 'icon_permits.svg', size: '96px * 48px', preserve_aspect_ratio: 'xMaxYMax meet' %>
+              &nbsp;
+              Chi ha preso <strong>ORE PERMESSO</strong> Oggi?
             </span>
             <hr/>
             <% @permits.each do |permit| %>
@@ -97,7 +103,9 @@
         <div class='row'>
           <div class='col text-disease'>
             <span class='badge background-disease'>
-              <i class='fas fa-thermometer-half'></i>&emsp;Chi è in <strong>MALATTIA</strong> Oggi?
+              <%= inline_svg_tag 'icon_diseases.svg', size: '96px * 48px', preserve_aspect_ratio: 'xMaxYMax meet' %>
+              &emsp;
+              Chi è in <strong>MALATTIA</strong> Oggi?
             </span>
             <hr/>
             <% @diseases.each do |disease| %>
