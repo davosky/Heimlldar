@@ -4,6 +4,7 @@
 // Variables
 
 $web-font-path: "https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" !default;
+
 @if $web-font-path {
   @import url($web-font-path);
 }
@@ -175,65 +176,73 @@ input,
   }
 
   &-primary {
+
     &,
-    > th,
-    > td {
+    >th,
+    >td {
       background-color: $primary;
     }
   }
 
   &-secondary {
+
     &,
-    > th,
-    > td {
+    >th,
+    >td {
       background-color: $secondary;
     }
   }
 
   &-success {
+
     &,
-    > th,
-    > td {
+    >th,
+    >td {
       background-color: $success;
     }
   }
 
   &-info {
+
     &,
-    > th,
-    > td {
+    >th,
+    >td {
       background-color: $info;
     }
   }
 
   &-danger {
+
     &,
-    > th,
-    > td {
+    >th,
+    >td {
       background-color: $danger;
     }
   }
 
   &-warning {
+
     &,
-    > th,
-    > td {
+    >th,
+    >td {
       background-color: $warning;
     }
   }
 
   &-dark {
+
     &,
-    > th,
-    > td {
+    >th,
+    >td {
       background-color: $dark;
     }
   }
 
   &-light {
+
     &,
-    > th,
-    > td {
+    >th,
+    >td {
       background-color: $light;
     }
 
@@ -392,9 +401,27 @@ body {
   font-size: large;
 }
 
+.border-absence {
+  border-style: solid;
+  border-width: 1px;
+  border-color: $dash-absence;
+  color: $dash-absence;
+  font-weight: 500;
+  font-size: large;
+}
+
 .background-holiday {
   background-color: $dash-holiday;
   color: $white;
+  font-weight: 500;
+  font-size: large;
+}
+
+.border-holiday {
+  border-style: solid;
+  border-width: 1px;
+  border-color: $dash-holiday;
+  color: $dash-holiday;
   font-weight: 500;
   font-size: large;
 }
@@ -406,9 +433,27 @@ body {
   font-size: large;
 }
 
+.border-permit {
+  border-style: solid;
+  border-width: 1px;
+  border-color: $dash-permit;
+  color: $dash-permit;
+  font-weight: 500;
+  font-size: large;
+}
+
 .background-disease {
   background-color: $dash-disease;
   color: $white;
+  font-weight: 500;
+  font-size: large;
+}
+
+.border-disease {
+  border-style: solid;
+  border-width: 1px;
+  border-color: $dash-disease;
+  color: $dash-disease;
   font-weight: 500;
   font-size: large;
 }
