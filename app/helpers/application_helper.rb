@@ -29,7 +29,7 @@ module ApplicationHelper
     @eweeknumber = absence.end_time.cweek.to_i()
     @period = @eweeknumber - @sweeknumber
 
-    if @period = 0
+    if @period < 1
       @timeamount = TimeDifference.between(absence.start_time, absence.end_time).in_days
       @timeamount = @timeamount + 1
     else
